@@ -1,0 +1,2865 @@
+<!DOCTYPE html>
+<html lang="en" style="margin: 0; padding: 0;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cakes Forever - Premium Bakery Brochure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            margin: 0;
+            padding: 0;
+            width: 210mm;
+            height: 296.8mm;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            color: #1C1C1C;
+            margin: 0;
+            padding: 0;
+            width: 210mm;
+        }
+
+        .a4-page {
+            width: 210mm;
+            height: 296.8mm;
+            background: white;
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+            display: flex;
+            flex-direction: column;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none;
+        }
+
+        .a4-page:last-child {
+            page-break-after: auto;
+        }
+
+        /* Typography */
+        .script {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Color Palette */
+        .cherry-red { color: #E53935; }
+        .strawberry-pink { color: #EC407A; }
+        .blush-pink { color: #FCE4EC; }
+        .bg-cherry { background: #E53935; }
+        .bg-strawberry { background: #EC407A; }
+        .bg-blush { background: #FCE4EC; }
+        .bg-charcoal { background: #1C1C1C; }
+
+        /* ============ PAGE 1: COVER ============ */
+        .cover-page {
+            background: linear-gradient(135deg, #E53935 0%, #E53935 60%, #EC407A 60%, #EC407A 100%);
+        }
+
+        .cover-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px;
+            position: relative;
+        }
+
+        .cover-logo {
+            background: white;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .cover-logo h1 {
+            font-size: 38px;
+            font-weight: 700;
+            color: #E53935;
+            margin-bottom: 5px;
+        }
+
+        .cover-logo p {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #EC407A;
+            font-weight: 500;
+        }
+
+        .cover-tagline {
+            color: white;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .cover-subtitle {
+            color: #FCE4EC;
+            font-size: 18px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .cover-decorative {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 3px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            top: 30px;
+            right: 30px;
+        }
+
+        /* ============ PAGE 2: CURVED DIVISION ============ */
+        .curved-page {
+            background: white;
+        }
+
+        .curved-header {
+            height: 140px;
+            background: #E53935;
+            position: relative;
+            padding: 30px 40px;
+            color: white;
+        }
+
+        .curved-header::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: #E53935;
+            border-radius: 0 0 50% 50%;
+        }
+
+        .curved-header h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .curved-header p {
+            font-size: 16px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .curved-main {
+            flex: 1;
+            padding: 60px 40px 30px;
+        }
+
+        .cake-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .cake-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .cake-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .cake-info {
+            padding: 15px;
+        }
+
+        .cake-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #1C1C1C;
+        }
+
+        .cake-desc {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .cake-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #E53935;
+        }
+
+        /* ============ PAGE 3: DIAGONAL SPLIT ============ */
+        .diagonal-page {
+            background: white;
+            position: relative;
+        }
+
+        .diagonal-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(165deg, #FCE4EC 0%, #FCE4EC 45%, white 45%, white 100%);
+        }
+
+        .diagonal-content {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            padding: 50px;
+        }
+
+        .section-title {
+            font-size: 38px;
+            font-weight: 700;
+            color: #E53935;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .cake-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .cake-card-small {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+
+        .cake-card-small .cake-img {
+            height: 140px;
+        }
+
+        .cake-card-small .cake-info {
+            padding: 15px;
+        }
+
+        .cake-card-small .cake-name {
+            font-size: 17px;
+        }
+
+        .cake-card-small .cake-desc {
+            font-size: 12px;
+        }
+
+        .cake-card-small .cake-price {
+            font-size: 19px;
+        }
+
+        /* ============ PAGE 4: VERTICAL PANELS ============ */
+        .panels-page {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .left-panel {
+            width: 35%;
+            background: #EC407A;
+            padding: 50px 30px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .left-panel h2 {
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .left-panel p {
+            font-size: 15px;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .right-panel {
+            flex: 1;
+            padding: 50px 40px;
+            background: white;
+        }
+
+        .cake-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .cake-card-horizontal {
+            display: flex;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        .cake-card-horizontal .cake-img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+        }
+
+        .cake-card-horizontal .cake-info {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* ============ PAGE 5: DRIP EFFECT ============ */
+        .drip-page {
+            background: white;
+        }
+
+        .drip-header {
+            height: 200px;
+            background: #E53935;
+            position: relative;
+            padding: 50px;
+            color: white;
+        }
+
+        .drip-header h2 {
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        .drip-effect {
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: #E53935;
+        }
+
+        .drip-effect::before {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 40px;
+            background: #E53935;
+            border-radius: 0 0 50% 50%;
+            left: 10%;
+            bottom: -20px;
+        }
+
+        .drip-effect::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 50px;
+            background: #E53935;
+            border-radius: 0 0 50% 50%;
+            right: 15%;
+            bottom: -25px;
+        }
+
+        .drip-main {
+            flex: 1;
+            padding: 70px 50px 40px;
+        }
+
+        .cake-masonry {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .cake-card-tall {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .cake-card-tall .cake-img {
+            height: 220px;
+        }
+
+        /* ============ PAGE 6: CIRCLE ACCENT ============ */
+        .circle-page {
+            background: #FCE4EC;
+            position: relative;
+        }
+
+        .circle-accent {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: #EC407A;
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            opacity: 0.3;
+        }
+
+        .circle-content {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            padding: 50px;
+        }
+
+        .circle-title {
+            background: white;
+            display: inline-block;
+            padding: 20px 40px;
+            border-radius: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .circle-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #E53935;
+        }
+
+        /* ============ PAGE 7: ASYMMETRIC BLOCKS ============ */
+        .blocks-page {
+            background: white;
+        }
+
+        .blocks-header {
+            background: linear-gradient(90deg, #E53935 0%, #E53935 60%, #EC407A 60%, #EC407A 100%);
+            padding: 50px;
+            color: white;
+        }
+
+        .blocks-header h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .blocks-main {
+            flex: 1;
+            padding: 50px;
+        }
+
+        .cake-grid-mixed {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 25px;
+        }
+
+        .cake-card-featured {
+            grid-column: span 2;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .cake-card-featured .cake-img {
+            height: 250px;
+        }
+
+        /* ============ PAGE 8: WAVE PATTERN ============ */
+        .wave-page {
+            background: white;
+            position: relative;
+        }
+
+        .wave-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: #FCE4EC;
+        }
+
+        .wave-bg::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: #FCE4EC;
+            border-radius: 50% 50% 0 0;
+        }
+
+        .wave-content {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            padding: 50px;
+        }
+
+        /* ============ PAGE 9: CORNER ACCENT ============ */
+        .corner-page {
+            background: white;
+            position: relative;
+        }
+
+        .corner-accent {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 250px 250px 0 0;
+            border-color: #E53935 transparent transparent transparent;
+            top: 0;
+            right: 0;
+        }
+
+        .corner-content {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            padding: 50px;
+        }
+
+        /* ============ PAGE 10: CONTACT ============ */
+        .contact-page {
+            background: linear-gradient(180deg, white 0%, white 50%, #FCE4EC 50%, #FCE4EC 100%);
+        }
+
+        .contact-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .contact-logo {
+            background: white;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .contact-logo h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #E53935;
+        }
+
+        .contact-logo p {
+            font-size: 9px;
+            letter-spacing: 2px;
+            color: #EC407A;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-info h2 {
+            font-size: 38px;
+            font-weight: 700;
+            color: #E53935;
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            font-size: 16px;
+            color: #1C1C1C;
+            line-height: 2;
+        }
+
+        .contact-details a {
+            color: #EC407A;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background: #E53935;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 20px;
+        }
+
+        .watermark {
+            position: absolute;
+            bottom: 30px;
+            font-size: 12px;
+            color: #999;
+            letter-spacing: 1px;
+        }
+
+        /* ============ PAGE 10: ZIGZAG DIVISION ============ */
+        .zigzag-page {
+            background: white;
+            position: relative;
+        }
+
+        .zigzag-top {
+            height: 200px;
+            background: #EC407A;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 75%, 90% 85%, 80% 75%, 70% 85%, 60% 75%, 50% 85%, 40% 75%, 30% 85%, 20% 75%, 10% 85%, 0 75%);
+            padding: 40px 50px;
+            color: white;
+        }
+
+        .zigzag-top h2 {
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        .zigzag-content {
+            flex: 1;
+            padding: 50px 40px 30px;
+        }
+
+        /* ============ PAGE 11: STACKED COLORS ============ */
+        .stacked-page {
+            background: white;
+        }
+
+        .color-strip-1 {
+            height: 100px;
+            background: #E53935;
+            display: flex;
+            align-items: center;
+            padding: 0 50px;
+            color: white;
+        }
+
+        .color-strip-1 h2 {
+            font-size: 38px;
+            font-weight: 700;
+        }
+
+        .color-strip-2 {
+            height: 60px;
+            background: #EC407A;
+        }
+
+        .stacked-content {
+            flex: 1;
+            padding: 40px;
+            background: #FCE4EC;
+        }
+
+        /* ============ PAGE 12: CIRCULAR WINDOW ============ */
+        .window-page {
+            background: #E53935;
+        }
+
+        .circular-window {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: white;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .window-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .window-title h2 {
+            font-size: 36px;
+            color: #E53935;
+            font-weight: 700;
+        }
+
+        /* ============ PAGE 13: L-SHAPE DIVISION ============ */
+        .lshape-page {
+            background: white;
+            position: relative;
+        }
+
+        .lshape-block {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40%;
+            height: 100%;
+            background: #FCE4EC;
+        }
+
+        .lshape-block::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: -100px;
+            height: 200px;
+            background: #FCE4EC;
+        }
+
+        .lshape-content {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            padding: 50px;
+        }
+
+        /* ============ PAGE 14: RIBBON STYLE ============ */
+        .ribbon-page {
+            background: white;
+        }
+
+        .ribbon-banner {
+            height: 150px;
+            background: linear-gradient(90deg, transparent 0%, #E53935 5%, #E53935 95%, transparent 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .ribbon-banner h2 {
+            font-size: 42px;
+            font-weight: 700;
+        }
+
+        .ribbon-banner::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-left: 50px solid white;
+            border-top: 75px solid transparent;
+            border-bottom: 75px solid transparent;
+        }
+
+        .ribbon-banner::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            border-right: 50px solid white;
+            border-top: 75px solid transparent;
+            border-bottom: 75px solid transparent;
+        }
+
+        .ribbon-content {
+            flex: 1;
+            padding: 50px 40px 30px;
+        }
+
+        /* ============ PAGE 15: SPLIT DIAGONAL REVERSE ============ */
+        .split-reverse-page {
+            background: white;
+            position: relative;
+        }
+
+        .split-reverse-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(15deg, #E53935 0%, #E53935 48%, white 48%, white 100%);
+        }
+
+        .split-reverse-content {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            padding: 50px;
+        }
+
+        .split-reverse-title {
+            background: white;
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .split-reverse-title h2 {
+            font-size: 34px;
+            font-weight: 700;
+            color: #E53935;
+        }
+
+        /* ============ PAGE 16: HALF CIRCLE ============ */
+        .halfcircle-page {
+            background: white;
+            position: relative;
+        }
+
+        .halfcircle-accent {
+            position: absolute;
+            width: 600px;
+            height: 300px;
+            background: #EC407A;
+            border-radius: 0 0 300px 300px;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .halfcircle-content {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            padding: 250px 50px 40px;
+        }
+
+        .halfcircle-content h2 {
+            text-align: center;
+            font-size: 38px;
+            color: white;
+            font-weight: 700;
+            margin-top: -200px;
+            margin-bottom: 180px;
+        }
+
+        /* ============ PAGE 17: TRIPLE VERTICAL ============ */
+        .triple-page {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .triple-col {
+            flex: 1;
+            padding: 50px 25px;
+        }
+
+        .triple-col:nth-child(1) {
+            background: #E53935;
+            color: white;
+        }
+
+        .triple-col:nth-child(2) {
+            background: white;
+        }
+
+        .triple-col:nth-child(3) {
+            background: #FCE4EC;
+        }
+
+        .triple-col h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .triple-cake-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        }
+
+        .triple-cake-card .cake-img {
+            height: 120px;
+        }
+
+        .triple-cake-card .cake-info {
+            padding: 12px;
+        }
+
+        .triple-cake-card .cake-name {
+            font-size: 15px;
+        }
+
+        .triple-cake-card .cake-desc {
+            font-size: 11px;
+            margin-bottom: 8px;
+        }
+
+        .triple-cake-card .cake-price {
+            font-size: 17px;
+        }
+
+        /* ============ PAGE 18: CORNER CURVES ============ */
+        .corner-curves-page {
+            background: white;
+            position: relative;
+        }
+
+        .top-left-curve {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: #E53935;
+            border-radius: 0 0 100% 0;
+            top: 0;
+            left: 0;
+        }
+
+        .bottom-right-curve {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: #EC407A;
+            border-radius: 100% 0 0 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        .corner-curves-content {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            padding: 50px;
+        }
+
+        /* ============ PAGE 19: STEPPED LAYOUT ============ */
+        .stepped-page {
+            background: white;
+        }
+
+        .step-1 {
+            height: 80px;
+            background: #E53935;
+            margin-left: 0;
+        }
+
+        .step-2 {
+            height: 80px;
+            background: #EC407A;
+            margin-left: 50px;
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            color: white;
+        }
+
+        .step-2 h2 {
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .step-3 {
+            height: 60px;
+            background: #FCE4EC;
+            margin-left: 100px;
+        }
+
+        .stepped-content {
+            flex: 1;
+            padding: 40px 50px 30px;
+        }
+
+        /* ============ PAGE 20: RADIAL BURST ============ */
+        .radial-page {
+            background: #FCE4EC;
+            position: relative;
+        }
+
+        .radial-center {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: #E53935;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 100px rgba(229, 57, 53, 0.4);
+        }
+
+        .radial-center h2 {
+            color: white;
+            font-size: 38px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .radial-content {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            padding: 50px;
+        }
+
+        /* ============ PAGE 21: BOTTOM WAVE ============ */
+        .bottom-wave-page {
+            background: white;
+        }
+
+        .bottom-wave-content {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .bottom-wave-bg {
+            height: 200px;
+            background: #E53935;
+            position: relative;
+        }
+
+        .bottom-wave-bg::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: #E53935;
+            border-radius: 0 0 50% 50% / 0 0 100% 100%;
+        }
+
+        /* ============ PAGE 22: DIAMOND ACCENT ============ */
+        .diamond-page {
+            background: white;
+            position: relative;
+        }
+
+        .diamond-accent {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: #EC407A;
+            transform: rotate(45deg);
+            top: 100px;
+            right: -100px;
+        }
+
+        .diamond-content {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            padding: 50px;
+        }
+
+        /* ============ PAGE 23: ARCH DESIGN ============ */
+        .arch-page {
+            background: #FCE4EC;
+        }
+
+        .arch-top {
+            height: 180px;
+            background: #E53935;
+            position: relative;
+            border-radius: 0 0 50% 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .arch-top h2 {
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        .arch-content {
+            flex: 1;
+            padding: 40px;
+        }
+
+        /* ============ PAGE 24: OVERLAPPING CIRCLES ============ */
+        .overlap-page {
+            background: white;
+            position: relative;
+        }
+
+        .circle-1 {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: rgba(229, 57, 53, 0.3);
+            border-radius: 50%;
+            top: 50px;
+            left: 50px;
+        }
+
+        .circle-2 {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: rgba(236, 64, 122, 0.3);
+            border-radius: 50%;
+            top: 100px;
+            right: 80px;
+        }
+
+        .overlap-content {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            padding: 50px;
+        }
+
+        /* ============ PAGE 25: VERTICAL GRADIENT ============ */
+        .vgradient-page {
+            background: linear-gradient(180deg, #E53935 0%, #E53935 30%, white 30%, white 100%);
+        }
+
+        .vgradient-header {
+            height: 220px;
+            padding: 50px;
+            color: white;
+        }
+
+        .vgradient-header h2 {
+            font-size: 42px;
+            font-weight: 700;
+        }
+
+        .vgradient-content {
+            flex: 1;
+            padding: 30px 40px;
+        }
+
+        /* ============ PAGE 26: OFFSET BLOCKS ============ */
+        .offset-page {
+            background: white;
+        }
+
+        .offset-header {
+            background: #EC407A;
+            height: 120px;
+            margin-left: 80px;
+            display: flex;
+            align-items: center;
+            padding: 0 50px;
+            color: white;
+        }
+
+        .offset-header h2 {
+            font-size: 38px;
+            font-weight: 700;
+        }
+
+        .offset-content {
+            flex: 1;
+            padding: 40px 50px 30px;
+            background: #FCE4EC;
+            margin-right: 80px;
+        }
+
+        /* ============ PAGE 27: SIDE STRIPE ============ */
+        .stripe-page {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .side-stripe {
+            width: 120px;
+            background: linear-gradient(180deg, #E53935 0%, #EC407A 100%);
+        }
+
+        .stripe-content {
+            flex: 1;
+            padding: 50px 40px 30px;
+            background: white;
+        }
+
+        /* ============ PAGE 28: CONCENTRIC CIRCLES ============ */
+        .concentric-page {
+            background: white;
+            position: relative;
+        }
+
+        .concentric-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .concentric-1 {
+            width: 600px;
+            height: 600px;
+            border: 40px solid rgba(229, 57, 53, 0.1);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .concentric-2 {
+            width: 400px;
+            height: 400px;
+            border: 30px solid rgba(236, 64, 122, 0.2);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .concentric-content {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            padding: 50px;
+        }
+
+        /* ============ PAGE 29: FLOWING BANNER ============ */
+        .flowing-page {
+            background: white;
+        }
+
+        .flowing-banner {
+            height: 180px;
+            background: #E53935;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 0 50px;
+            color: white;
+        }
+
+        .flowing-banner h2 {
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        .flowing-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: #E53935;
+            clip-path: polygon(0 0, 100% 0, 100% 50%, 95% 100%, 85% 50%, 75% 100%, 65% 50%, 55% 100%, 45% 50%, 35% 100%, 25% 50%, 15% 100%, 5% 50%, 0 100%);
+        }
+
+        .flowing-content {
+            flex: 1;
+            padding: 80px 40px 30px;
+        }
+
+        @media print {
+            * {
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            html, body {
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 210mm !important;
+                height: 296.8mm !important;
+                border: none !important;
+            }
+            .a4-page {
+                page-break-inside: avoid;
+                margin: 0 !important;
+                padding: 0 !important;
+                border: none !important;
+            }
+            @page {
+                size: A4;
+                margin: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0;">
+
+    <!-- PAGE 1: COVER -->
+    <div class="a4-page cover-page">
+        <div class="cover-content">
+            <div class="cover-decorative"></div>
+            <div class="cover-logo">
+                <h1 class="script">Cakes Forever</h1>
+                <p>PREMIUM BAKERY</p>
+            </div>
+            <h2 class="cover-tagline script">Sweetness<br>Redefined</h2>
+            <p class="cover-subtitle">HANDCRAFTED LUXURY DESSERTS</p>
+        </div>
+    </div>
+
+    <!-- PAGE 2: CURVED DIVISION -->
+    <div class="a4-page curved-page">
+        <header class="curved-header">
+            <h2 class="script">Signature Classics</h2>
+            <p>Timeless flavors crafted to perfection</p>
+        </header>
+        <main class="curved-main">
+            <div class="cake-grid-2">
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop" alt="Chocolate Truffle Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Chocolate Truffle</h3>
+                        <p class="cake-desc">Rich dark chocolate layers with silky truffle cream</p>
+                        <p class="cake-price">₹850/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1588195538326-c5b1e5b27c11?w=400&h=300&fit=crop" alt="Red Velvet Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Red Velvet Classic</h3>
+                        <p class="cake-desc">Velvety smooth with cream cheese frosting</p>
+                        <p class="cake-price">₹900/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=400&h=300&fit=crop" alt="Vanilla Dream Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Vanilla Dream</h3>
+                        <p class="cake-desc">Pure Madagascar vanilla with buttercream swirls</p>
+                        <p class="cake-price">₹750/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=300&fit=crop" alt="Butterscotch Delight" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Butterscotch Delight</h3>
+                        <p class="cake-desc">Caramel infused with crunchy butterscotch bits</p>
+                        <p class="cake-price">₹800/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=400&h=300&fit=crop" alt="Black Forest" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Black Forest</h3>
+                        <p class="cake-desc">Chocolate sponge with cherries and whipped cream</p>
+                        <p class="cake-price">₹880/kg</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- PAGE 3: DIAGONAL SPLIT -->
+    <div class="a4-page diagonal-page">
+        <div class="diagonal-bg"></div>
+        <div class="diagonal-content">
+            <h2 class="section-title script">Fruit Fantasies</h2>
+            <p class="section-subtitle">Fresh, fruity & utterly delightful</p>
+            <div class="cake-grid-3">
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&h=300&fit=crop" alt="Strawberry Supreme" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Strawberry Supreme</h3>
+                        <p class="cake-desc">Fresh strawberries with vanilla cream</p>
+                        <p class="cake-price">₹950/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1595257841889-eca2678454e2?w=400&h=300&fit=crop" alt="Mango Bliss" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Mango Bliss</h3>
+                        <p class="cake-desc">Tropical mango layers with cream</p>
+                        <p class="cake-price">₹920/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=400&h=300&fit=crop" alt="Pineapple Paradise" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Pineapple Paradise</h3>
+                        <p class="cake-desc">Tangy pineapple with fluffy cream</p>
+                        <p class="cake-price">₹850/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1558326567-98ae2405596b?w=400&h=300&fit=crop" alt="Mixed Berry Burst" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Mixed Berry Burst</h3>
+                        <p class="cake-desc">Blueberries, raspberries & strawberries</p>
+                        <p class="cake-price">₹1050/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1557308536-ee471ef2c390?w=400&h=300&fit=crop" alt="Kiwi Delight" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Kiwi Delight</h3>
+                        <p class="cake-desc">Exotic kiwi with white chocolate</p>
+                        <p class="cake-price">₹980/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=400&h=300&fit=crop" alt="Orange Zest" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Orange Zest</h3>
+                        <p class="cake-desc">Citrus orange with cream frosting</p>
+                        <p class="cake-price">₹880/kg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 4: VERTICAL PANELS -->
+    <div class="a4-page panels-page">
+        <div class="left-panel">
+            <h2 class="script">Chocolate Heaven</h2>
+            <p>For the true chocolate connoisseur. Every bite is an indulgent experience crafted with premium cocoa and love.</p>
+        </div>
+        <div class="right-panel">
+            <div class="cake-list">
+                <div class="cake-card-horizontal">
+                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=300&h=300&fit=crop" alt="Dark Chocolate Fudge" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Dark Chocolate Fudge</h3>
+                        <p class="cake-desc">Intensely rich dark chocolate with fudge layers</p>
+                        <p class="cake-price">₹950/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-horizontal">
+                    <img src="https://images.unsplash.com/photo-1585748806908-e9235ae8ba50?w=300&h=300&fit=crop" alt="White Chocolate Raspberry" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">White Chocolate Raspberry</h3>
+                        <p class="cake-desc">Creamy white chocolate with raspberry swirls</p>
+                        <p class="cake-price">₹1020/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-horizontal">
+                    <img src="https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?w=300&h=300&fit=crop" alt="Triple Chocolate" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Triple Chocolate</h3>
+                        <p class="cake-desc">Dark, milk & white chocolate perfection</p>
+                        <p class="cake-price">₹1100/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-horizontal">
+                    <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=300&h=300&fit=crop" alt="Ferrero Rocher" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Ferrero Rocher</h3>
+                        <p class="cake-desc">Hazelnut chocolate with crunchy layers</p>
+                        <p class="cake-price">₹1250/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-horizontal">
+                    <img src="https://images.unsplash.com/photo-1562440499-64c9a5d68932?w=300&h=300&fit=crop" alt="Choco Chip" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Choco Chip Dream</h3>
+                        <p class="cake-desc">Loaded with chocolate chips throughout</p>
+                        <p class="cake-price">₹900/kg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 5: DRIP EFFECT -->
+    <div class="a4-page drip-page">
+        <header class="drip-header">
+            <h2 class="script">Premium Collection</h2>
+            <div class="drip-effect"></div>
+        </header>
+        <main class="drip-main">
+            <div class="cake-masonry">
+                <div class="cake-card-tall">
+                    <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=400&h=400&fit=crop" alt="Oreo Overload" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Oreo Overload</h3>
+                        <p class="cake-desc">Crushed Oreo cookies with cream cheese frosting</p>
+                        <p class="cake-price">₹980/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-tall">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&h=400&fit=crop" alt="Tiramisu Classic" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Tiramisu Classic</h3>
+                        <p class="cake-desc">Coffee-soaked layers with mascarpone cream</p>
+                        <p class="cake-price">₹1150/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-tall">
+                    <img src="https://images.unsplash.com/photo-1557925923-cd4648e211a0?w=400&h=400&fit=crop" alt="Red Velvet Cheesecake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Red Velvet Cheesecake</h3>
+                        <p class="cake-desc">Red velvet base with creamy cheesecake topping</p>
+                        <p class="cake-price">₹1200/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-tall">
+                    <img src="https://images.unsplash.com/photo-1586985545862-69928b1d9587?w=400&h=400&fit=crop" alt="Nutella Delight" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Nutella Delight</h3>
+                        <p class="cake-desc">Hazelnut heaven with Nutella frosting</p>
+                        <p class="cake-price">₹1180/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-tall">
+                    <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=400&h=400&fit=crop" alt="Lotus Biscoff" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Lotus Biscoff</h3>
+                        <p class="cake-desc">Caramelized Biscoff cookies with cream</p>
+                        <p class="cake-price">₹1050/kg</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- PAGE 6: CIRCLE ACCENT -->
+    <div class="a4-page circle-page">
+        <div class="circle-accent"></div>
+        <div class="circle-content">
+            <div class="circle-title">
+                <h2 class="script">Designer Delights</h2>
+            </div>
+            <div class="cake-grid-2">
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1602351447937-745cb720612f?w=400&h=300&fit=crop" alt="Rainbow Layer" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Rainbow Layer</h3>
+                        <p class="cake-desc">Vibrant multi-colored layers with vanilla cream</p>
+                        <p class="cake-price">₹1100/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&h=300&fit=crop" alt="Unicorn Dreams" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Unicorn Dreams</h3>
+                        <p class="cake-desc">Pastel swirls with edible glitter and magic</p>
+                        <p class="cake-price">₹1300/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1616690710400-a16d146927c5?w=400&h=300&fit=crop" alt="Marble Elegance" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Marble Elegance</h3>
+                        <p class="cake-desc">Chocolate-vanilla marble with mirror glaze</p>
+                        <p class="cake-price">₹1250/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" alt="Gold Dust" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Gold Dust</h3>
+                        <p class="cake-desc">Luxury vanilla with edible gold accents</p>
+                        <p class="cake-price">₹1400/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=300&fit=crop" alt="Rose Garden" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Rose Garden</h3>
+                        <p class="cake-desc">Delicate rose-flavored sponge with buttercream roses</p>
+                        <p class="cake-price">₹1150/kg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 7: ASYMMETRIC BLOCKS -->
+    <div class="a4-page blocks-page">
+        <header class="blocks-header">
+            <h2 class="script">Seasonal Specials</h2>
+            <p>Limited edition creations for the season</p>
+        </header>
+        <main class="blocks-main">
+            <div class="cake-grid-mixed">
+                <div class="cake-card-featured">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=400&fit=crop" alt="Christmas Special" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Christmas Joy</h3>
+                        <p class="cake-desc">Festive red velvet with white chocolate cream cheese frosting</p>
+                        <p class="cake-price">₹1350/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&h=300&fit=crop" alt="Winter Wonderland" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Winter Wonderland</h3>
+                        <p class="cake-desc">Coconut snowflake design</p>
+                        <p class="cake-price">₹1200/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?w=400&h=300&fit=crop" alt="Pumpkin Spice" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Pumpkin Spice</h3>
+                        <p class="cake-desc">Autumn spiced delight</p>
+                        <p class="cake-price">₹1080/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=400&h=300&fit=crop" alt="Summer Berry" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Summer Berry</h3>
+                        <p class="cake-desc">Light & refreshing berries</p>
+                        <p class="cake-price">₹1120/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=400&h=300&fit=crop" alt="Monsoon Magic" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Monsoon Magic</h3>
+                        <p class="cake-desc">Spiced chai flavor</p>
+                        <p class="cake-price">₹950/kg</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- PAGE 8: WAVE PATTERN -->
+    <div class="a4-page wave-page">
+        <div class="wave-bg"></div>
+        <div class="wave-content">
+            <h2 class="section-title script">Sugar-Free & Vegan</h2>
+            <p class="section-subtitle">Delicious guilt-free indulgences</p>
+            <div class="cake-grid-3">
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=400&h=300&fit=crop" alt="Sugar-Free Chocolate" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Sugar-Free Chocolate</h3>
+                        <p class="cake-desc">Rich chocolate with natural sweeteners</p>
+                        <p class="cake-price">₹1050/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1558326567-98ae2405596b?w=400&h=300&fit=crop" alt="Vegan Berry Bliss" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Vegan Berry Bliss</h3>
+                        <p class="cake-desc">Plant-based with fresh berries</p>
+                        <p class="cake-price">₹1150/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1595257841889-eca2678454e2?w=400&h=300&fit=crop" alt="Keto Chocolate" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Keto Chocolate</h3>
+                        <p class="cake-desc">Low-carb chocolate perfection</p>
+                        <p class="cake-price">₹1280/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1557308536-ee471ef2c390?w=400&h=300&fit=crop" alt="Gluten-Free Vanilla" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Gluten-Free Vanilla</h3>
+                        <p class="cake-desc">Soft vanilla without gluten</p>
+                        <p class="cake-price">₹1100/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=400&h=300&fit=crop" alt="Organic Carrot" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Organic Carrot</h3>
+                        <p class="cake-desc">Wholesome with cream cheese</p>
+                        <p class="cake-price">₹1050/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&h=300&fit=crop" alt="Vegan Strawberry" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Vegan Strawberry</h3>
+                        <p class="cake-desc">Dairy-free strawberry dream</p>
+                        <p class="cake-price">₹1200/kg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 9: CORNER ACCENT -->
+    <div class="a4-page corner-page">
+        <div class="corner-accent"></div>
+        <div class="corner-content">
+            <h2 class="section-title script">Birthday & Occasion Cakes</h2>
+            <p class="section-subtitle">Make every celebration memorable</p>
+            <div class="cake-grid-2">
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1602351447937-745cb720612f?w=400&h=300&fit=crop" alt="Birthday Blast" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Birthday Blast</h3>
+                        <p class="cake-desc">Customized birthday cake with photo & name</p>
+                        <p class="cake-price">₹1500/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=400&h=300&fit=crop" alt="Anniversary Elegance" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Anniversary Elegance</h3>
+                        <p class="cake-desc">Romantic two-tier with fresh flowers</p>
+                        <p class="cake-price">₹1800/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1616690710400-a16d146927c5?w=400&h=300&fit=crop" alt="Baby Shower" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Baby Shower Sweet</h3>
+                        <p class="cake-desc">Adorable pastel design for the little one</p>
+                        <p class="cake-price">₹1400/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" alt="Wedding Dream" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Wedding Dream</h3>
+                        <p class="cake-desc">Multi-tier masterpiece for your big day</p>
+                        <p class="cake-price">₹2000/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=300&fit=crop" alt="Corporate Success" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Corporate Success</h3>
+                        <p class="cake-desc">Professional design with company branding</p>
+                        <p class="cake-price">₹1600/kg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 10: ZIGZAG DIVISION -->
+    <div class="a4-page zigzag-page">
+        <div class="zigzag-top">
+            <h2 class="script">Exotic Flavors</h2>
+        </div>
+        <div class="zigzag-content">
+            <div class="cake-grid-3">
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop" alt="Matcha Green Tea" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Matcha Green Tea</h3>
+                        <p class="cake-desc">Japanese matcha with white chocolate</p>
+                        <p class="cake-price">₹1180/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1588195538326-c5b1e5b27c11?w=400&h=300&fit=crop" alt="Lavender Honey" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Lavender Honey</h3>
+                        <p class="cake-desc">Delicate lavender with honey glaze</p>
+                        <p class="cake-price">₹1150/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=400&h=300&fit=crop" alt="Earl Grey" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Earl Grey</h3>
+                        <p class="cake-desc">Aromatic tea-infused sponge</p>
+                        <p class="cake-price">₹1100/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=300&fit=crop" alt="Pistachio Dream" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Pistachio Dream</h3>
+                        <p class="cake-desc">Rich pistachio cream layers</p>
+                        <p class="cake-price">₹1300/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=400&h=300&fit=crop" alt="Saffron Almond" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Saffron Almond</h3>
+                        <p class="cake-desc">Premium saffron with crushed almonds</p>
+                        <p class="cake-price">₹1450/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&h=300&fit=crop" alt="Rose Cardamom" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Rose Cardamom</h3>
+                        <p class="cake-desc">Indian fusion with aromatic spices</p>
+                        <p class="cake-price">₹1200/kg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 11: STACKED COLORS -->
+    <div class="a4-page stacked-page">
+        <div class="color-strip-1">
+            <h2 class="script">Mousse Cakes</h2>
+        </div>
+        <div class="color-strip-2"></div>
+        <div class="stacked-content">
+            <div class="cake-grid-2">
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=400&h=300&fit=crop" alt="Chocolate Mousse" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Chocolate Mousse</h3>
+                        <p class="cake-desc">Light and airy chocolate perfection</p>
+                        <p class="cake-price">₹1150/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1558326567-98ae2405596b?w=400&h=300&fit=crop" alt="Strawberry Mousse" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Strawberry Mousse</h3>
+                        <p class="cake-desc">Fresh strawberry with cream layers</p>
+                        <p class="cake-price">₹1200/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1595257841889-eca2678454e2?w=400&h=300&fit=crop" alt="Mango Mousse" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Mango Mousse</h3>
+                        <p class="cake-desc">Tropical mango in silky mousse</p>
+                        <p class="cake-price">₹1180/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1557308536-ee471ef2c390?w=400&h=300&fit=crop" alt="Coffee Mousse" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Coffee Mousse</h3>
+                        <p class="cake-desc">Rich espresso mousse delight</p>
+                        <p class="cake-price">₹1150/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=400&h=300&fit=crop" alt="Lemon Mousse" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Lemon Mousse</h3>
+                        <p class="cake-desc">Tangy lemon in fluffy layers</p>
+                        <p class="cake-price">₹1100/kg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 12: CIRCULAR WINDOW -->
+    <div class="a4-page window-page">
+        <div class="circular-window">
+            <div class="window-title">
+                <h2 class="script">Kids Special</h2>
+            </div>
+            <div class="cake-grid-2" style="gap: 15px;">
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1602351447937-745cb720612f?w=400&h=300&fit=crop" alt="Superhero Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Superhero Cake</h3>
+                        <p class="cake-desc">Action-packed design for little heroes</p>
+                        <p class="cake-price">₹1350/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=400&h=300&fit=crop" alt="Princess Castle" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Princess Castle</h3>
+                        <p class="cake-desc">Magical castle with pink frosting</p>
+                        <p class="cake-price">₹1400/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1616690710400-a16d146927c5?w=400&h=300&fit=crop" alt="Cartoon Character" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Cartoon Character</h3>
+                        <p class="cake-desc">Favorite characters in edible art</p>
+                        <p class="cake-price">₹1450/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" alt="Rainbow Sprinkles" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Rainbow Sprinkles</h3>
+                        <p class="cake-desc">Colorful vanilla with sprinkle explosion</p>
+                        <p class="cake-price">₹1100/kg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 13: L-SHAPE DIVISION -->
+    <div class="a4-page lshape-page">
+        <div class="lshape-block"></div>
+        <div class="lshape-content">
+            <h2 class="section-title script">Cheesecakes</h2>
+            <p class="section-subtitle">Creamy, rich & irresistible</p>
+            <div class="cake-grid-3">
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&h=300&fit=crop" alt="Classic Cheesecake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Classic Cheesecake</h3>
+                        <p class="cake-desc">New York style creamy perfection</p>
+                        <p class="cake-price">₹1250/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1557925923-cd4648e211a0?w=400&h=300&fit=crop" alt="Blueberry Cheesecake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Blueberry Cheesecake</h3>
+                        <p class="cake-desc">Tangy blueberry topping on cream</p>
+                        <p class="cake-price">₹1320/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1586985545862-69928b1d9587?w=400&h=300&fit=crop" alt="Caramel Cheesecake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Caramel Cheesecake</h3>
+                        <p class="cake-desc">Salted caramel drizzle delight</p>
+                        <p class="cake-price">₹1380/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=400&h=300&fit=crop" alt="Oreo Cheesecake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Oreo Cheesecake</h3>
+                        <p class="cake-desc">Crushed Oreo with cream cheese</p>
+                        <p class="cake-price">₹1280/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=400&h=300&fit=crop" alt="Chocolate Cheesecake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Chocolate Cheesecake</h3>
+                        <p class="cake-desc">Double chocolate indulgence</p>
+                        <p class="cake-price">₹1350/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1602351447937-745cb720612f?w=400&h=300&fit=crop" alt="Strawberry Cheesecake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Strawberry Cheesecake</h3>
+                        <p class="cake-desc">Fresh strawberry compote on top</p>
+                        <p class="cake-price">₹1300/kg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 14: RIBBON STYLE -->
+    <div class="a4-page ribbon-page">
+        <div class="ribbon-banner">
+            <h2 class="script">Pastries & Tarts</h2>
+        </div>
+        <div class="ribbon-content">
+            <div class="cake-grid-2">
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop" alt="Apple Tart" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Apple Tart</h3>
+                        <p class="cake-desc">Caramelized apples on buttery crust</p>
+                        <p class="cake-price">₹950/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1588195538326-c5b1e5b27c11?w=400&h=300&fit=crop" alt="Chocolate Eclair" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Chocolate Eclair</h3>
+                        <p class="cake-desc">Choux pastry with chocolate glaze</p>
+                        <p class="cake-price">₹1050/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=400&h=300&fit=crop" alt="Lemon Tart" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Lemon Tart</h3>
+                        <p class="cake-desc">Tangy lemon curd in crisp shell</p>
+                        <p class="cake-price">₹980/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=300&fit=crop" alt="Fruit Danish" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Fruit Danish</h3>
+                        <p class="cake-desc">Flaky pastry with seasonal fruits</p>
+                        <p class="cake-price">₹920/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=400&h=300&fit=crop" alt="Puff Pastry" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Cream Puff</h3>
+                        <p class="cake-desc">Light puff filled with vanilla cream</p>
+                        <p class="cake-price">₹850/kg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 15: SPLIT DIAGONAL REVERSE -->
+    <div class="a4-page split-reverse-page">
+        <div class="split-reverse-bg"></div>
+        <div class="split-reverse-content">
+            <div class="split-reverse-title">
+                <h2 class="script">Cupcakes</h2>
+            </div>
+            <div class="cake-grid-3">
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&h=300&fit=crop" alt="Red Velvet Cupcake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Red Velvet Cupcake</h3>
+                        <p class="cake-desc">Mini red velvet with cream cheese</p>
+                        <p class="cake-price">₹850/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=400&h=300&fit=crop" alt="Chocolate Cupcake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Chocolate Cupcake</h3>
+                        <p class="cake-desc">Rich chocolate with ganache top</p>
+                        <p class="cake-price">₹800/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1558326567-98ae2405596b?w=400&h=300&fit=crop" alt="Vanilla Cupcake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Vanilla Cupcake</h3>
+                        <p class="cake-desc">Classic vanilla with buttercream</p>
+                        <p class="cake-price">₹750/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1595257841889-eca2678454e2?w=400&h=300&fit=crop" alt="Lemon Cupcake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Lemon Cupcake</h3>
+                        <p class="cake-desc">Zesty lemon with cream frosting</p>
+                        <p class="cake-price">₹820/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1557308536-ee471ef2c390?w=400&h=300&fit=crop" alt="Strawberry Cupcake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Strawberry Cupcake</h3>
+                        <p class="cake-desc">Fresh strawberry with pink frosting</p>
+                        <p class="cake-price">₹880/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=400&h=300&fit=crop" alt="Caramel Cupcake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Caramel Cupcake</h3>
+                        <p class="cake-desc">Salted caramel drizzle delight</p>
+                        <p class="cake-price">₹900/kg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 16: HALF CIRCLE -->
+    <div class="a4-page halfcircle-page">
+        <div class="halfcircle-accent"></div>
+        <div class="halfcircle-content">
+            <h2 class="script">Premium Desserts</h2>
+            <div class="cake-grid-2">
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1602351447937-745cb720612f?w=400&h=300&fit=crop" alt="Opera Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Opera Cake</h3>
+                        <p class="cake-desc">French almond sponge with coffee buttercream</p>
+                        <p class="cake-price">₹1500/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=400&h=300&fit=crop" alt="Mille-Feuille" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Mille-Feuille</h3>
+                        <p class="cake-desc">Thousand layers of puff pastry perfection</p>
+                        <p class="cake-price">₹1450/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1616690710400-a16d146927c5?w=400&h=300&fit=crop" alt="Sachertorte" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Sachertorte</h3>
+                        <p class="cake-desc">Austrian chocolate with apricot glaze</p>
+                        <p class="cake-price">₹1420/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" alt="Pavlova" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Pavlova</h3>
+                        <p class="cake-desc">Meringue with fresh cream and berries</p>
+                        <p class="cake-price">₹1380/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=300&fit=crop" alt="Crème Brûlée Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Crème Brûlée Cake</h3>
+                        <p class="cake-desc">Vanilla custard with caramelized top</p>
+                        <p class="cake-price">₹1550/kg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 17: TRIPLE VERTICAL -->
+    <div class="a4-page triple-page">
+        <div class="triple-col">
+            <h3 class="script">Chocolate</h3>
+            <div class="triple-cake-card">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop" alt="Triple Chocolate" class="cake-img">
+                <div class="cake-info">
+                    <h3 class="cake-name script">Triple Chocolate</h3>
+                    <p class="cake-desc">Ultimate chocolate experience</p>
+                    <p class="cake-price">₹1100/kg</p>
+                </div>
+            </div>
+            <div class="triple-cake-card">
+                <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=300&h=200&fit=crop" alt="Death by Chocolate" class="cake-img">
+                <div class="cake-info">
+                    <h3 class="cake-name script">Death by Chocolate</h3>
+                    <p class="cake-desc">Intense chocolate overload</p>
+                    <p class="cake-price">₹1250/kg</p>
+                </div>
+            </div>
+            <div class="triple-cake-card">
+                <img src="https://images.unsplash.com/photo-1585748806908-e9235ae8ba50?w=300&h=200&fit=crop" alt="Choco Lava" class="cake-img">
+                <div class="cake-info">
+                    <h3 class="cake-name script">Choco Lava</h3>
+                    <p class="cake-desc">Molten chocolate center</p>
+                    <p class="cake-price">₹1180/kg</p>
+                </div>
+            </div>
+        </div>
+        <div class="triple-col">
+            <h3 class="script">Vanilla</h3>
+            <div class="triple-cake-card">
+                <img src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=300&h=200&fit=crop" alt="Classic Vanilla" class="cake-img">
+                <div class="cake-info">
+                    <h3 class="cake-name script">Classic Vanilla</h3>
+                    <p class="cake-desc">Pure vanilla perfection</p>
+                    <p class="cake-price">₹750/kg</p>
+                </div>
+            </div>
+            <div class="triple-cake-card">
+                <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=300&h=200&fit=crop" alt="French Vanilla" class="cake-img">
+                <div class="cake-info">
+                    <h3 class="cake-name script">French Vanilla</h3>
+                    <p class="cake-desc">Rich custard-based vanilla</p>
+                    <p class="cake-price">₹850/kg</p>
+                </div>
+            </div>
+            <div class="triple-cake-card">
+                <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=300&h=200&fit=crop" alt="Vanilla Bean" class="cake-img">
+                <div class="cake-info">
+                    <h3 class="cake-name script">Vanilla Bean</h3>
+                    <p class="cake-desc">Real vanilla bean specks</p>
+                    <p class="cake-price">₹920/kg</p>
+                </div>
+            </div>
+        </div>
+        <div class="triple-col">
+            <h3 class="script">Fruit</h3>
+            <div class="triple-cake-card">
+                <img src="https://images.unsplash.com/photo-1595257841889-eca2678454e2?w=300&h=200&fit=crop" alt="Mixed Fruit" class="cake-img">
+                <div class="cake-info">
+                    <h3 class="cake-name script">Mixed Fruit</h3>
+                    <p class="cake-desc">Assorted seasonal fruits</p>
+                    <p class="cake-price">₹950/kg</p>
+                </div>
+            </div>
+            <div class="triple-cake-card">
+                <img src="https://images.unsplash.com/photo-1558326567-98ae2405596b?w=300&h=200&fit=crop" alt="Tropical Delight" class="cake-img">
+                <div class="cake-info">
+                    <h3 class="cake-name script">Tropical Delight</h3>
+                    <p class="cake-desc">Exotic fruit combination</p>
+                    <p class="cake-price">₹1020/kg</p>
+                </div>
+            </div>
+            <div class="triple-cake-card">
+                <img src="https://images.unsplash.com/photo-1557308536-ee471ef2c390?w=300&h=200&fit=crop" alt="Berry Mix" class="cake-img">
+                <div class="cake-info">
+                    <h3 class="cake-name script">Berry Mix</h3>
+                    <p class="cake-desc">Fresh berry medley</p>
+                    <p class="cake-price">₹1080/kg</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 18: CORNER CURVES -->
+    <div class="a4-page corner-curves-page">
+        <div class="top-left-curve"></div>
+        <div class="bottom-right-curve"></div>
+        <div class="corner-curves-content">
+            <h2 class="section-title script">Ice Cream Cakes</h2>
+            <p class="section-subtitle">Cool & creamy delights</p>
+            <div class="cake-grid-2">
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=400&h=300&fit=crop" alt="Chocolate Ice Cream Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Chocolate Ice Cream Cake</h3>
+                        <p class="cake-desc">Layers of chocolate ice cream and cake</p>
+                        <p class="cake-price">₹1200/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&h=300&fit=crop" alt="Strawberry Ice Cream Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Strawberry Ice Cream Cake</h3>
+                        <p class="cake-desc">Fresh strawberry ice cream layers</p>
+                        <p class="cake-price">₹1250/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1558326567-98ae2405596b?w=400&h=300&fit=crop" alt="Cookie & Cream" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Cookie & Cream</h3>
+                        <p class="cake-desc">Oreo cookies with vanilla ice cream</p>
+                        <p class="cake-price">₹1180/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1595257841889-eca2678454e2?w=400&h=300&fit=crop" alt="Mango Ice Cream Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Mango Ice Cream Cake</h3>
+                        <p class="cake-desc">Tropical mango ice cream delight</p>
+                        <p class="cake-price">₹1220/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&h=300&fit=crop" alt="Neapolitan" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Neapolitan</h3>
+                        <p class="cake-desc">Three flavors in perfect harmony</p>
+                        <p class="cake-price">₹1150/kg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 19: STEPPED LAYOUT -->
+    <div class="a4-page stepped-page">
+        <div class="step-1"></div>
+        <div class="step-2">
+            <h2 class="script">Brownie Cakes</h2>
+        </div>
+        <div class="step-3"></div>
+        <div class="stepped-content">
+            <div class="cake-grid-3">
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?w=400&h=300&fit=crop" alt="Fudge Brownie" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Fudge Brownie Cake</h3>
+                        <p class="cake-desc">Dense chocolate brownie layers</p>
+                        <p class="cake-price">₹1050/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=300&fit=crop" alt="Walnut Brownie" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Walnut Brownie Cake</h3>
+                        <p class="cake-desc">Crunchy walnuts in fudge</p>
+                        <p class="cake-price">₹1120/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1585748806908-e9235ae8ba50?w=400&h=300&fit=crop" alt="Caramel Brownie" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Caramel Brownie Cake</h3>
+                        <p class="cake-desc">Salted caramel swirl brownies</p>
+                        <p class="cake-price">₹1180/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1562440499-64c9a5d68932?w=400&h=300&fit=crop" alt="White Chocolate Brownie" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">White Chocolate Brownie</h3>
+                        <p class="cake-desc">Blondie with white chocolate</p>
+                        <p class="cake-price">₹1150/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1586985545862-69928b1d9587?w=400&h=300&fit=crop" alt="Nutella Brownie" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Nutella Brownie Cake</h3>
+                        <p class="cake-desc">Hazelnut heaven brownie</p>
+                        <p class="cake-price">₹1220/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=400&h=300&fit=crop" alt="Triple Chocolate Brownie" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Triple Chocolate Brownie</h3>
+                        <p class="cake-desc">Three types of chocolate chips</p>
+                        <p class="cake-price">₹1200/kg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 20: RADIAL BURST -->
+    <div class="a4-page radial-page">
+        <div class="radial-center">
+            <h2 class="script">Signature<br>Creations</h2>
+        </div>
+        <div class="radial-content">
+            <div class="cake-grid-2" style="margin-top: 400px;">
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1602351447937-745cb720612f?w=400&h=300&fit=crop" alt="Chef's Special" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Chef's Special</h3>
+                        <p class="cake-desc">Our pastry chef's unique creation of the month</p>
+                        <p class="cake-price">₹1650/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=400&h=300&fit=crop" alt="Luxury Gold" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Luxury Gold</h3>
+                        <p class="cake-desc">Premium ingredients with 24k edible gold</p>
+                        <p class="cake-price">₹2500/kg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 21: BOTTOM WAVE -->
+    <div class="a4-page bottom-wave-page">
+        <div class="bottom-wave-content">
+            <h2 class="section-title script">Macarons & Petit Fours</h2>
+            <p class="section-subtitle">Delicate French elegance</p>
+            <div class="cake-grid-3">
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop" alt="French Macarons" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">French Macarons</h3>
+                        <p class="cake-desc">Assorted flavors, delicate shells</p>
+                        <p class="cake-price">₹1800/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1588195538326-c5b1e5b27c11?w=400&h=300&fit=crop" alt="Chocolate Macarons" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Chocolate Macarons</h3>
+                        <p class="cake-desc">Rich chocolate ganache filling</p>
+                        <p class="cake-price">₹1850/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=400&h=300&fit=crop" alt="Vanilla Macarons" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Vanilla Macarons</h3>
+                        <p class="cake-desc">Classic vanilla buttercream</p>
+                        <p class="cake-price">₹1750/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=300&fit=crop" alt="Raspberry Macarons" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Raspberry Macarons</h3>
+                        <p class="cake-desc">Fresh raspberry jam filling</p>
+                        <p class="cake-price">₹1920/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=400&h=300&fit=crop" alt="Pistachio Macarons" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Pistachio Macarons</h3>
+                        <p class="cake-desc">Ground pistachio perfection</p>
+                        <p class="cake-price">₹2050/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&h=300&fit=crop" alt="Petit Fours" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Petit Fours</h3>
+                        <p class="cake-desc">Miniature cake assortment</p>
+                        <p class="cake-price">₹1680/kg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-wave-bg"></div>
+    </div>
+
+    <!-- PAGE 22: DIAMOND ACCENT -->
+    <div class="a4-page diamond-page">
+        <div class="diamond-accent"></div>
+        <div class="diamond-content">
+            <h2 class="section-title script">Cake Jars</h2>
+            <p class="section-subtitle">Dessert in a jar - perfect for gifting</p>
+            <div class="cake-grid-2">
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=400&h=300&fit=crop" alt="Red Velvet Jar" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Red Velvet Jar</h3>
+                        <p class="cake-desc">Layered red velvet with cream cheese</p>
+                        <p class="cake-price">₹950/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1558326567-98ae2405596b?w=400&h=300&fit=crop" alt="Chocolate Jar" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Chocolate Jar</h3>
+                        <p class="cake-desc">Rich chocolate layers with mousse</p>
+                        <p class="cake-price">₹920/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1595257841889-eca2678454e2?w=400&h=300&fit=crop" alt="Fruit Jar" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Fruit Jar</h3>
+                        <p class="cake-desc">Fresh fruits with vanilla cake</p>
+                        <p class="cake-price">₹980/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1557308536-ee471ef2c390?w=400&h=300&fit=crop" alt="Oreo Jar" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Oreo Jar</h3>
+                        <p class="cake-desc">Crushed Oreo with cream layers</p>
+                        <p class="cake-price">₹950/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=400&h=300&fit=crop" alt="Tiramisu Jar" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Tiramisu Jar</h3>
+                        <p class="cake-desc">Coffee-soaked ladyfingers in jar</p>
+                        <p class="cake-price">₹1050/kg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 23: ARCH DESIGN -->
+    <div class="a4-page arch-page">
+        <div class="arch-top">
+            <h2 class="script">Custom Cakes</h2>
+        </div>
+        <div class="arch-content">
+            <div class="cake-grid-2">
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1602351447937-745cb720612f?w=400&h=300&fit=crop" alt="Photo Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Photo Cake</h3>
+                        <p class="cake-desc">Your photo printed on edible sheet</p>
+                        <p class="cake-price">₹1400/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=400&h=300&fit=crop" alt="3D Sculpted Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">3D Sculpted Cake</h3>
+                        <p class="cake-desc">Custom 3D shape of your choice</p>
+                        <p class="cake-price">₹2200/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1616690710400-a16d146927c5?w=400&h=300&fit=crop" alt="Number Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Number Cake</h3>
+                        <p class="cake-desc">Shaped as your special number</p>
+                        <p class="cake-price">₹1600/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" alt="Letter Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Letter Cake</h3>
+                        <p class="cake-desc">Alphabet shaped with toppings</p>
+                        <p class="cake-price">₹1550/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=300&fit=crop" alt="Theme Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Theme Cake</h3>
+                        <p class="cake-desc">Any theme or design you imagine</p>
+                        <p class="cake-price">₹1800/kg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 24: OVERLAPPING CIRCLES -->
+    <div class="a4-page overlap-page">
+        <div class="circle-1"></div>
+        <div class="circle-2"></div>
+        <div class="overlap-content">
+            <h2 class="section-title script">Corporate Gifting</h2>
+            <p class="section-subtitle">Premium gift boxes for businesses</p>
+            <div class="cake-grid-3">
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop" alt="Corporate Box - Mini" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Corporate Box - Mini</h3>
+                        <p class="cake-desc">6 assorted mini cakes in gift box</p>
+                        <p class="cake-price">₹1200/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1588195538326-c5b1e5b27c11?w=400&h=300&fit=crop" alt="Corporate Box - Regular" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Corporate Box - Regular</h3>
+                        <p class="cake-desc">12 assorted treats in premium box</p>
+                        <p class="cake-price">₹1500/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=400&h=300&fit=crop" alt="Corporate Box - Deluxe" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Corporate Box - Deluxe</h3>
+                        <p class="cake-desc">24 premium items in luxury packaging</p>
+                        <p class="cake-price">₹1800/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=300&fit=crop" alt="Branded Logo Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Branded Logo Cake</h3>
+                        <p class="cake-desc">Company logo on premium cake</p>
+                        <p class="cake-price">₹1650/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=400&h=300&fit=crop" alt="Festival Hamper" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Festival Hamper</h3>
+                        <p class="cake-desc">Curated selection for festivals</p>
+                        <p class="cake-price">₹2000/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&h=300&fit=crop" alt="Custom Gift Set" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Custom Gift Set</h3>
+                        <p class="cake-desc">Personalized as per your needs</p>
+                        <p class="cake-price">₹1750/kg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 25: VERTICAL GRADIENT -->
+    <div class="a4-page vgradient-page">
+        <div class="vgradient-header">
+            <h2 class="script">Celebration Packages</h2>
+            <p style="font-size: 16px; margin-top: 15px; opacity: 0.95;">Complete party solutions</p>
+        </div>
+        <div class="vgradient-content">
+            <div class="cake-grid-2">
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1602351447937-745cb720612f?w=400&h=300&fit=crop" alt="Birthday Package" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Birthday Package</h3>
+                        <p class="cake-desc">1 large cake + 24 cupcakes + decorations</p>
+                        <p class="cake-price">₹1350/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=400&h=300&fit=crop" alt="Anniversary Package" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Anniversary Package</h3>
+                        <p class="cake-desc">2-tier cake + chocolate box + flowers</p>
+                        <p class="cake-price">₹1800/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1616690710400-a16d146927c5?w=400&h=300&fit=crop" alt="Party Package" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Party Package</h3>
+                        <p class="cake-desc">50 mini desserts + 1 large cake</p>
+                        <p class="cake-price">₹1450/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" alt="Premium Package" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Premium Package</h3>
+                        <p class="cake-desc">3-tier cake + dessert table setup</p>
+                        <p class="cake-price">₹2200/kg</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=300&fit=crop" alt="Office Party" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Office Party</h3>
+                        <p class="cake-desc">Large cake + 100 mini pastries</p>
+                        <p class="cake-price">₹1550/kg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 26: OFFSET BLOCKS -->
+    <div class="a4-page offset-page">
+        <div class="offset-header">
+            <h2 class="script">Add-Ons & Extras</h2>
+        </div>
+        <div class="offset-content">
+            <div class="cake-grid-3">
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop" alt="Edible Flowers" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Edible Flowers</h3>
+                        <p class="cake-desc">Fresh edible flower decoration</p>
+                        <p class="cake-price">₹350/set</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1588195538326-c5b1e5b27c11?w=400&h=300&fit=crop" alt="Gold Leaf" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Gold Leaf</h3>
+                        <p class="cake-desc">24k edible gold decoration</p>
+                        <p class="cake-price">₹800/set</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=400&h=300&fit=crop" alt="Custom Topper" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Custom Topper</h3>
+                        <p class="cake-desc">Personalized cake topper</p>
+                        <p class="cake-price">₹450/pc</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=300&fit=crop" alt="Fresh Fruits" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Fresh Fruits</h3>
+                        <p class="cake-desc">Seasonal fresh fruit topping</p>
+                        <p class="cake-price">₹300/set</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=400&h=300&fit=crop" alt="Chocolate Shavings" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Chocolate Shavings</h3>
+                        <p class="cake-desc">Premium chocolate curls</p>
+                        <p class="cake-price">₹280/set</p>
+                    </div>
+                </div>
+                <div class="cake-card-small">
+                    <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&h=300&fit=crop" alt="Sparkler Candles" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Sparkler Candles</h3>
+                        <p class="cake-desc">Premium birthday sparklers</p>
+                        <p class="cake-price">₹200/set</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 27: SIDE STRIPE -->
+    <div class="a4-page stripe-page">
+        <div class="side-stripe"></div>
+        <div class="stripe-content">
+            <h2 class="section-title script">Our Promise</h2>
+            <p class="section-subtitle">Quality & freshness guaranteed</p>
+            <div class="cake-grid-2">
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=400&h=300&fit=crop" alt="Same Day Delivery" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Same Day Delivery</h3>
+                        <p class="cake-desc">Order before 12 PM for same-day delivery</p>
+                        <p class="cake-price">Free Delivery</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1558326567-98ae2405596b?w=400&h=300&fit=crop" alt="Fresh Daily" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Fresh Daily</h3>
+                        <p class="cake-desc">All cakes made fresh to order every day</p>
+                        <p class="cake-price">100% Fresh</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1595257841889-eca2678454e2?w=400&h=300&fit=crop" alt="Quality Ingredients" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Quality Ingredients</h3>
+                        <p class="cake-desc">Premium imported and local ingredients</p>
+                        <p class="cake-price">Best Quality</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1557308536-ee471ef2c390?w=400&h=300&fit=crop" alt="Custom Orders" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Custom Orders</h3>
+                        <p class="cake-desc">We create any design you can imagine</p>
+                        <p class="cake-price">Your Vision</p>
+                    </div>
+                </div>
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=400&h=300&fit=crop" alt="Hygiene Standards" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-name script">Hygiene Standards</h3>
+                        <p class="cake-desc">FSSAI certified with highest hygiene</p>
+                        <p class="cake-price">Certified</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 28: CONCENTRIC CIRCLES -->
+    <div class="a4-page concentric-page">
+        <div class="concentric-bg">
+            <div class="concentric-1"></div>
+            <div class="concentric-2"></div>
+        </div>
+        <div class="concentric-content">
+            <h2 class="section-title script">Testimonials</h2>
+            <p class="section-subtitle">What our customers say</p>
+            <div style="margin-top: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                    <p style="font-size: 15px; color: #666; line-height: 1.7; margin-bottom: 20px;">"The best cakes in town! Ordered a custom 3D cake for my daughter's birthday and everyone was amazed. The attention to detail is incredible."</p>
+                    <p style="font-weight: 600; color: #E53935;">- Priya Sharma</p>
+                </div>
+                <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                    <p style="font-size: 15px; color: #666; line-height: 1.7; margin-bottom: 20px;">"We've been ordering from Cakes Forever for all our corporate events. Professional, delicious, and always on time. Highly recommended!"</p>
+                    <p style="font-weight: 600; color: #E53935;">- Rajesh Patel, CEO</p>
+                </div>
+                <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                    <p style="font-size: 15px; color: #666; line-height: 1.7; margin-bottom: 20px;">"Their sugar-free cakes are a game-changer! Finally, I can enjoy desserts without guilt. The taste is just as amazing as regular cakes."</p>
+                    <p style="font-weight: 600; color: #E53935;">- Meera Desai</p>
+                </div>
+                <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                    <p style="font-size: 15px; color: #666; line-height: 1.7; margin-bottom: 20px;">"The wedding cake they created for us was beyond our dreams. Every guest couldn't stop talking about how beautiful and delicious it was!"</p>
+                    <p style="font-weight: 600; color: #E53935;">- Anita & Vikram</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 29: FLOWING BANNER -->
+    <div class="a4-page flowing-page">
+        <div class="flowing-banner">
+            <h2 class="script">Order Information</h2>
+        </div>
+        <div class="flowing-content">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                <div>
+                    <h3 style="font-size: 24px; font-weight: 700; color: #E53935; margin-bottom: 20px;" class="script">How to Order</h3>
+                    <div style="background: #FCE4EC; padding: 25px; border-radius: 12px; margin-bottom: 20px;">
+                        <p style="font-size: 14px; line-height: 1.8; color: #1C1C1C;">
+                            <strong>1. Choose Your Cake</strong><br>
+                            Browse our menu and select your favorite<br><br>
+                            <strong>2. Customize</strong><br>
+                            Tell us your specific requirements<br><br>
+                            <strong>3. Place Order</strong><br>
+                            Call, WhatsApp, or order online<br><br>
+                            <strong>4. Payment</strong><br>
+                            Pay online or cash on delivery<br><br>
+                            <strong>5. Delivery</strong><br>
+                            We deliver fresh to your doorstep
+                        </p>
+                    </div>
+                    <h3 style="font-size: 24px; font-weight: 700; color: #E53935; margin-bottom: 20px; margin-top: 30px;" class="script">Delivery Areas</h3>
+                    <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 3px 15px rgba(0,0,0,0.08);">
+                        <p style="font-size: 14px; line-height: 1.8; color: #1C1C1C;">
+                            • Kalyan & Dombivli<br>
+                            • Thane & Navi Mumbai<br>
+                            • Mumbai (All Areas)<br>
+                            • Pan India (Advance Order)
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="font-size: 24px; font-weight: 700; color: #E53935; margin-bottom: 20px;" class="script">Ordering Policy</h3>
+                    <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 3px 15px rgba(0,0,0,0.08); margin-bottom: 20px;">
+                        <p style="font-size: 14px; line-height: 1.8; color: #1C1C1C;">
+                            <strong>Minimum Order:</strong> 500g for regular cakes<br><br>
+                            <strong>Advance Notice:</strong><br>
+                            • Regular cakes: 4 hours<br>
+                            • Custom cakes: 24-48 hours<br>
+                            • Wedding cakes: 1 week<br><br>
+                            <strong>Cancellation:</strong><br>
+                            Free cancellation up to 6 hours before delivery
+                        </p>
+                    </div>
+                    <h3 style="font-size: 24px; font-weight: 700; color: #E53935; margin-bottom: 20px; margin-top: 30px;" class="script">Payment Methods</h3>
+                    <div style="background: #FCE4EC; padding: 25px; border-radius: 12px;">
+                        <p style="font-size: 14px; line-height: 1.8; color: #1C1C1C;">
+                            • Cash on Delivery<br>
+                            • UPI / Google Pay / PhonePe<br>
+                            • Credit / Debit Cards<br>
+                            • Net Banking<br>
+                            • Wallets (Paytm, etc.)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 30: CONTACT -->
+    <div class="a4-page contact-page">
+        <div class="contact-content">
+            <div class="contact-logo">
+                <h3 class="script">Cakes Forever</h3>
+                <p>PREMIUM BAKERY</p>
+            </div>
+            <div class="contact-info">
+                <h2 class="script">Get In Touch</h2>
+                <div class="contact-details">
+                    <p>📍 123 Sweet Street, Kalyan, Maharashtra 421301</p>
+                    <p>📞 <a href="tel:+919876543210">+91 98765 43210</a></p>
+                    <p>✉️ <a href="/cdn-cgi/l/email-protection#c8a0ada4a4a788aba9a3adbbaea7baadbeadbae6aba7a5"><span class="__cf_email__" data-cfemail="bed6dbd2d2d1fedddfd5dbcdd8d1ccdbc8dbcc90ddd1d3">[email&#160;protected]</span></a></p>
+                    <p>🌐 <a href="https://www.cakesforever.com">www.cakesforever.com</a></p>
+                </div>
+                <div class="social-links">
+                    <div class="social-icon">f</div>
+                    <div class="social-icon">📷</div>
+                    <div class="social-icon">W</div>
+             
