@@ -1,0 +1,4253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake Forever - Premium Cake Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        @media print {
+            .page {
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+            .page:last-child {
+                page-break-after: auto;
+            }
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #fff;
+            color: #333;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            position: relative;
+            overflow: hidden;
+            background: white;
+            page-break-after: always;
+        }
+
+        /* HERO PAGE */
+        .hero-page {
+            background: linear-gradient(135deg, #C41E3A 0%, #FF1744 50%, #C41E3A 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: #FFFACD;
+            clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+        }
+
+        .hero-page::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: #FFB6C1;
+            clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .hero-content {
+            z-index: 10;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .hero-logo {
+            font-size: 72px;
+            font-weight: bold;
+            color: #FFFACD;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            font-family: 'Brush Script MT', cursive;
+        }
+
+        .hero-tagline {
+            font-size: 32px;
+            color: white;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .hero-description {
+            font-size: 20px;
+            color: #FFFACD;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .hero-feature {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px 30px;
+            border-radius: 15px;
+            color: white;
+            font-size: 18px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* PAGE 1 - Chocolate Cakes ₹250 */
+        .page1 {
+            background: #FFB6C1;
+        }
+
+        .page-header {
+            background: #C41E3A;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .page-subtitle {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+
+        /* Page 1 Header - Bold Serif */
+        .page1 .page-header {
+            background: linear-gradient(to right, #C41E3A, #FF1744);
+            font-family: 'Georgia', serif;
+            border-bottom: 5px solid #FFD700;
+        }
+
+        .page1 .page-title {
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* Page 2 Header - Italic Elegant */
+        .page2 .page-header {
+            background: linear-gradient(135deg, #8B0000, #C41E3A);
+            font-family: 'Palatino', serif;
+            border-bottom: 3px double white;
+        }
+
+        .page2 .page-title {
+            font-style: italic;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+        }
+
+        /* Page 3 Header - Playful Rounded */
+        .page3 .page-header {
+            background: linear-gradient(to right, #FF69B4, #FFB6C1);
+            font-family: 'Comic Sans MS', cursive;
+            border-radius: 0 0 50px 50px;
+        }
+
+        .page3 .page-title {
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.3);
+        }
+
+        /* Page 4 Header - Modern Sans */
+        .page4 .page-header {
+            background: #DDA0DD;
+            font-family: 'Arial Black', sans-serif;
+            border-bottom: 8px solid #C41E3A;
+        }
+
+        .page4 .page-title {
+            letter-spacing: 5px;
+            font-weight: 900;
+        }
+
+        /* Page 5 Header - Elegant Script Style */
+        .page5 .page-header {
+            background: linear-gradient(135deg, #87CEEB, #4682B4);
+            font-family: 'Brush Script MT', cursive;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .page5 .page-title {
+            font-size: 42px;
+            font-weight: normal;
+        }
+
+        /* Page 6 Header - Bold Modern */
+        .page6 .page-header {
+            background: linear-gradient(to right, #DDA0DD, #BA55D3);
+            font-family: 'Impact', sans-serif;
+            border-top: 5px solid #FFD700;
+            border-bottom: 5px solid #FFD700;
+        }
+
+        .page6 .page-title {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        /* Page 7 Header - Decorative */
+        .page7 .page-header {
+            background: linear-gradient(45deg, #FF69B4, #C41E3A);
+            font-family: 'Copperplate', fantasy;
+            border-bottom: 6px dotted white;
+        }
+
+        .page7 .page-title {
+            font-weight: bold;
+            text-decoration: underline;
+            text-decoration-style: wavy;
+        }
+
+        /* Page 8 Header - Retro */
+        .page8 .page-header {
+            background: linear-gradient(to bottom, #87CEEB, #4169E1);
+            font-family: 'Courier New', monospace;
+            border-left: 10px solid #FFD700;
+            border-right: 10px solid #FFD700;
+        }
+
+        .page8 .page-title {
+            font-weight: bold;
+            letter-spacing: 6px;
+        }
+
+        /* Page 9 Header - Stylish Cursive */
+        .page9 .page-header {
+            background: linear-gradient(to right, #BA55D3, #9370DB);
+            font-family: 'Lucida Handwriting', cursive;
+            border-radius: 0 0 30px 30px;
+        }
+
+        .page9 .page-title {
+            font-size: 38px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+        }
+
+        /* Page 10 Header - Bold Condensed */
+        .page10 .page-header {
+            background: linear-gradient(135deg, #C41E3A, #8B0000);
+            font-family: 'Arial Narrow', sans-serif;
+            border-bottom: 5px solid #FFB6C1;
+        }
+
+        .page10 .page-title {
+            font-weight: 900;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+        }
+
+        /* Page 11 Header - Classic Serif */
+        .page11 .page-header {
+            background: linear-gradient(to right, #FFD700, #FFA500);
+            font-family: 'Times New Roman', serif;
+            border-top: 3px solid #C41E3A;
+            border-bottom: 3px solid #C41E3A;
+            color: #8B0000;
+        }
+
+        .page11 .page-title {
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        /* Page 12 Header - Gradient Text Effect */
+        .page12 .page-header {
+            background: linear-gradient(to bottom, #FF1744, #C41E3A);
+            font-family: 'Verdana', sans-serif;
+            border-radius: 0 0 40px 40px;
+        }
+
+        .page12 .page-title {
+            font-weight: 900;
+            text-shadow: 5px 5px 10px rgba(0,0,0,0.6);
+            letter-spacing: 3px;
+        }
+
+        /* Page 13 Header - Golden Premium */
+        .page13 .page-header {
+            background: linear-gradient(to right, #FFD700, #FFA500);
+            font-family: 'Palatino Linotype', serif;
+            border: 4px double #8B4513;
+            color: #8B0000;
+        }
+
+        .page13 .page-title {
+            font-weight: bold;
+            text-transform: capitalize;
+            font-size: 40px;
+        }
+
+        /* Page 14 Header - Pink Luxury */
+        .page14 .page-header {
+            background: linear-gradient(to right, #FF69B4, #FF1493);
+            font-family: 'Garamond', serif;
+            border-bottom: 6px solid #FFD700;
+            box-shadow: inset 0 -3px 10px rgba(0,0,0,0.3);
+        }
+
+        .page14 .page-title {
+            font-style: italic;
+            font-weight: 600;
+            letter-spacing: 4px;
+        }
+
+        /* Page 15 Header - Purple Elite */
+        .page15 .page-header {
+            background: linear-gradient(to right, #9370DB, #8A2BE2);
+            font-family: 'Book Antiqua', serif;
+            border-top: 5px solid #FFD700;
+            border-bottom: 5px solid #FFD700;
+        }
+
+        .page15 .page-title {
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 38px;
+            letter-spacing: 5px;
+        }
+
+        /* Page 16 Header - Pastry Fun */
+        .page16 .page-header {
+            background: linear-gradient(to right, #FF8C00, #FFD700);
+            font-family: 'Trebuchet MS', sans-serif;
+            border-radius: 0 0 60px 60px;
+            color: #8B4513;
+        }
+
+        .page16 .page-title {
+            font-weight: 800;
+            text-shadow: 3px 3px 6px rgba(255,255,255,0.5);
+            letter-spacing: 4px;
+        }
+
+        .grid-5-diagonal {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 25px 30px;
+            height: calc(297mm - 120px);
+        }
+
+        .cake-card-1 {
+            background: white;
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            border: 4px solid #C41E3A;
+        }
+
+        .cake-card-1:nth-child(5) {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        .cake-card-1:nth-child(5) .cake-image {
+            width: 280px;
+            height: 180px;
+        }
+
+        .cake-image {
+            width: 100%;
+            height: 200px;
+            background: #FFFACD;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            border: 2px dashed #C41E3A;
+        }
+
+        .cake-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #C41E3A;
+            margin-bottom: 8px;
+        }
+
+        .cake-weight {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .cake-price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FF1744;
+            margin-top: auto;
+        }
+
+        /* PAGE 2 - Chocolate Cakes ₹250 (Continued) */
+        .page2 {
+            background: linear-gradient(to bottom, #87CEEB 0%, #87CEEB 50%, #FFB6C1 50%, #FFB6C1 100%);
+        }
+
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 25px 30px;
+            height: calc(297mm - 120px);
+        }
+
+        .cake-card-2 {
+            background: white;
+            border-radius: 25px;
+            padding: 18px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            border-left: 8px solid #C41E3A;
+        }
+
+        .cake-card-2:nth-child(5) {
+            grid-column: 1 / -1;
+            border-left: none;
+            border-top: 8px solid #C41E3A;
+            display: flex;
+            gap: 25px;
+        }
+
+        .cake-card-2:nth-child(5) .cake-image {
+            width: 300px;
+            height: 160px;
+        }
+
+        /* PAGE 3 - Fruit Cakes ₹250 */
+        .page3 {
+            background: #FFFACD;
+        }
+
+        .zigzag-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 15px;
+            padding: 20px 25px;
+            height: calc(297mm - 120px);
+        }
+
+        .zigzag-grid .cake-card-3:nth-child(1),
+        .zigzag-grid .cake-card-3:nth-child(3) {
+            grid-column: 1;
+        }
+
+        .zigzag-grid .cake-card-3:nth-child(2),
+        .zigzag-grid .cake-card-3:nth-child(4) {
+            grid-column: 2;
+        }
+
+        .zigzag-grid .cake-card-3:nth-child(5) {
+            grid-column: 1 / -1;
+        }
+
+        .cake-card-3 {
+            background: linear-gradient(135deg, white 0%, #FFE4E1 100%);
+            border-radius: 30px;
+            padding: 15px;
+            box-shadow: 0 12px 24px rgba(196, 30, 58, 0.2);
+            border: 3px solid #FF69B4;
+        }
+
+        .cake-card-3 .cake-image {
+            height: 150px;
+        }
+
+        /* PAGE 4 - Fruit Cakes ₹250 (Continued) */
+        .page4 {
+            background: linear-gradient(45deg, #DDA0DD 25%, transparent 25%, transparent 75%, #DDA0DD 75%, #DDA0DD),
+                        linear-gradient(45deg, #DDA0DD 25%, transparent 25%, transparent 75%, #DDA0DD 75%, #DDA0DD);
+            background-color: #FFB6C1;
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+        }
+
+        .circular-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 20px 25px;
+            height: calc(297mm - 120px);
+        }
+
+        .circular-grid .cake-card-4:nth-child(1),
+        .circular-grid .cake-card-4:nth-child(2) {
+            grid-column: span 1;
+        }
+
+        .circular-grid .cake-card-4:nth-child(3) {
+            grid-column: 3;
+            grid-row: 1 / 3;
+        }
+
+        .circular-grid .cake-card-4:nth-child(4) {
+            grid-column: 1 / 3;
+        }
+
+        .circular-grid .cake-card-4:nth-child(5) {
+            grid-column: 1 / 4;
+        }
+
+        .cake-card-4 {
+            background: white;
+            border-radius: 50px;
+            padding: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+            border: 5px solid #C41E3A;
+        }
+
+        .cake-card-4 .cake-image {
+            height: 140px;
+        }
+
+        /* PAGE 5 - Chocolate Cakes ₹300 */
+        .page5 {
+            background: #87CEEB;
+        }
+
+        .asymmetric-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            padding: 20px 25px;
+            height: calc(297mm - 120px);
+        }
+
+        .asymmetric-grid .cake-card-5:nth-child(1) {
+            grid-column: 1 / 3;
+            grid-row: 1;
+        }
+
+        .asymmetric-grid .cake-card-5:nth-child(2) {
+            grid-column: 3;
+            grid-row: 1 / 3;
+        }
+
+        .asymmetric-grid .cake-card-5:nth-child(3) {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .asymmetric-grid .cake-card-5:nth-child(4) {
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        .asymmetric-grid .cake-card-5:nth-child(5) {
+            grid-column: 1 / 4;
+        }
+
+        .cake-card-5 {
+            background: linear-gradient(to bottom right, #FFFACD, #FFB6C1);
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 10px 25px rgba(135, 206, 235, 0.4);
+            border-top: 6px solid #C41E3A;
+            border-left: 6px solid #FF69B4;
+        }
+
+        .cake-card-5 .cake-image {
+            height: 160px;
+        }
+
+        /* PAGE 6 - Chocolate Cakes ₹300 (Continued) */
+        .page6 {
+            background: linear-gradient(to right, #DDA0DD 0%, #FFB6C1 50%, #FFFACD 100%);
+        }
+
+        .horizontal-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 20px 25px;
+            height: calc(297mm - 120px);
+        }
+
+        .cake-card-6 {
+            background: white;
+            border-radius: 15px;
+            padding: 12px;
+            display: flex;
+            gap: 18px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-right: 10px solid #C41E3A;
+            flex: 1;
+        }
+
+        .cake-card-6 .cake-image {
+            width: 180px;
+            height: 100%;
+            margin-bottom: 0;
+        }
+
+        .cake-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* PAGE 7 - Fruit Cakes ₹300 */
+        .page7 {
+            background: #FFB6C1;
+        }
+
+        .corner-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 15px;
+            padding: 20px 25px;
+            height: calc(297mm - 120px);
+        }
+
+        .corner-grid .cake-card-7:nth-child(1) {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .corner-grid .cake-card-7:nth-child(2) {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .corner-grid .cake-card-7:nth-child(3) {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .corner-grid .cake-card-7:nth-child(4) {
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        .corner-grid .cake-card-7:nth-child(5) {
+            grid-column: 1 / 3;
+            grid-row: 3;
+        }
+
+        .cake-card-7 {
+            background: white;
+            border-radius: 40px 10px;
+            padding: 15px;
+            box-shadow: -10px 10px 20px rgba(196, 30, 58, 0.3);
+            border: 4px solid #87CEEB;
+        }
+
+        .cake-card-7 .cake-image {
+            height: 140px;
+        }
+
+        /* PAGE 8 - Fruit Cakes ₹300 (Continued) */
+        .page8 {
+            background: linear-gradient(135deg, #FFFACD 0%, #FFE4E1 25%, #FFB6C1 50%, #DDA0DD 75%, #87CEEB 100%);
+        }
+
+        .diamond-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 15px;
+            padding: 20px 25px;
+            height: calc(297mm - 120px);
+        }
+
+        .diamond-grid .cake-card-8:nth-child(1) {
+            grid-column: 2;
+        }
+
+        .diamond-grid .cake-card-8:nth-child(2) {
+            grid-column: 1;
+        }
+
+        .diamond-grid .cake-card-8:nth-child(3) {
+            grid-column: 3;
+        }
+
+        .diamond-grid .cake-card-8:nth-child(4) {
+            grid-column: 2;
+        }
+
+        .diamond-grid .cake-card-8:nth-child(5) {
+            grid-column: 1 / 4;
+        }
+
+        .cake-card-8 {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 0 30px rgba(196, 30, 58, 0.3);
+            border: 5px solid #C41E3A;
+            transform: rotate(-2deg);
+        }
+
+        .cake-card-8:nth-child(even) {
+            transform: rotate(2deg);
+        }
+
+        .cake-card-8:nth-child(5) {
+            transform: rotate(0deg);
+        }
+
+        .cake-card-8 .cake-image {
+            height: 150px;
+        }
+
+        /* PAGE 9 - Chocolate Cakes ₹350 */
+        .page9 {
+            background: #DDA0DD;
+        }
+
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: minmax(100px, auto);
+            gap: 15px;
+            padding: 20px 25px;
+            height: calc(297mm - 120px);
+        }
+
+        .masonry-grid .cake-card-9:nth-child(1) {
+            grid-column: 1 / 3;
+            grid-row: 1 / 3;
+        }
+
+        .masonry-grid .cake-card-9:nth-child(2) {
+            grid-column: 3;
+            grid-row: 1;
+        }
+
+        .masonry-grid .cake-card-9:nth-child(3) {
+            grid-column: 3;
+            grid-row: 2;
+        }
+
+        .masonry-grid .cake-card-9:nth-child(4) {
+            grid-column: 1;
+            grid-row: 3;
+        }
+
+        .masonry-grid .cake-card-9:nth-child(5) {
+            grid-column: 2 / 4;
+            grid-row: 3;
+        }
+
+        .cake-card-9 {
+            background: linear-gradient(to top, #FFB6C1, white);
+            border-radius: 25px;
+            padding: 15px;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+            border-bottom: 8px solid #C41E3A;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .masonry-grid .cake-card-9:nth-child(1) .cake-image {
+            height: 280px;
+            margin-bottom: auto;
+        }
+
+        .cake-card-9 .cake-image {
+            height: 140px;
+        }
+
+        .cake-card-9 .cake-name,
+        .cake-card-9 .cake-weight,
+        .cake-card-9 .cake-price {
+            margin-top: auto;
+        }
+
+        /* PAGE 10 - Chocolate Cakes ₹350 (Continued) */
+        .page10 {
+            background: linear-gradient(to bottom, #87CEEB 0%, white 50%, #FFFACD 100%);
+        }
+
+        .wave-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 20px 25px;
+            height: calc(297mm - 120px);
+        }
+
+        .cake-card-10 {
+            background: white;
+            border-radius: 60px 10px 60px 10px;
+            padding: 15px;
+            box-shadow: 0 15px 35px rgba(196, 30, 58, 0.25);
+            border: 6px double #C41E3A;
+        }
+
+        .wave-grid .cake-card-10:nth-child(5) {
+            grid-column: 1 / 3;
+        }
+
+        .cake-card-10 .cake-image {
+            height: 150px;
+        }
+
+        /* PAGE 11 - Chocolate Cakes ₹400 */
+        .page11 {
+            background: #FFFACD;
+        }
+
+        .ribbon-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 20px 25px;
+            height: calc(297mm - 120px);
+        }
+
+        .cake-card-11 {
+            background: linear-gradient(90deg, #FFB6C1 0%, white 20%, white 80%, #87CEEB 100%);
+            border-radius: 10px;
+            padding: 12px;
+            display: flex;
+            gap: 18px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            border-top: 5px solid #C41E3A;
+            border-bottom: 5px solid #C41E3A;
+            flex: 1;
+        }
+
+        .cake-card-11 .cake-image {
+            width: 160px;
+            height: 100%;
+            margin-bottom: 0;
+        }
+
+        /* PAGE 12 - Chocolate Cakes ₹400 (Continued) */
+        .page12 {
+            background: linear-gradient(45deg, #C41E3A 10%, transparent 10%, transparent 90%, #C41E3A 90%),
+                        linear-gradient(-45deg, #FFB6C1 10%, transparent 10%, transparent 90%, #FFB6C1 90%);
+            background-color: white;
+            background-size: 80px 80px;
+        }
+
+        .final-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr auto;
+            gap: 15px;
+            padding: 20px 25px;
+            height: calc(297mm - 120px);
+        }
+
+        .cake-card-12 {
+            background: white;
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 20px 40px rgba(196, 30, 58, 0.35);
+            border: 8px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+
+        .cake-card-12::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            background: linear-gradient(135deg, #C41E3A, #FF69B4, #87CEEB, #DDA0DD);
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .final-grid .cake-card-12:nth-child(5) {
+            grid-column: 1 / 3;
+        }
+
+        .cake-card-12 .cake-image {
+            height: 150px;
+        }
+
+        /* PAGE 13-15: Premium Dessert Cakes - 4 Cards Grid */
+        .page13 {
+            background: linear-gradient(135deg, #FFFACD 0%, #FFE4B5 100%);
+        }
+
+        .page14 {
+            background: radial-gradient(circle at top left, #FFB6C1, #FFC0CB, #FFE4E1);
+        }
+
+        .page15 {
+            background: linear-gradient(to bottom right, #E6E6FA, #DDA0DD, #D8BFD8);
+        }
+
+        /* Page 13 - Staggered Layout */
+        .quad-grid-13 {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 12px;
+            padding: 18px 22px;
+            height: calc(297mm - 120px);
+        }
+
+        .quad-grid-13 .dessert-card:nth-child(1) {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .quad-grid-13 .dessert-card:nth-child(2) {
+            grid-column: 2;
+            grid-row: 1 / 3;
+        }
+
+        .quad-grid-13 .dessert-card:nth-child(3) {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .quad-grid-13 .dessert-card:nth-child(4) {
+            grid-column: 1 / 3;
+            grid-row: 3;
+        }
+
+        /* Page 14 - Diagonal Cross Layout */
+        .quad-grid-14 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            padding: 18px 22px;
+            height: calc(297mm - 120px);
+        }
+
+        .quad-grid-14 .dessert-card:nth-child(1) {
+            grid-column: 1 / 3;
+            grid-row: 1;
+        }
+
+        .quad-grid-14 .dessert-card:nth-child(2) {
+            grid-column: 3;
+            grid-row: 1 / 3;
+        }
+
+        .quad-grid-14 .dessert-card:nth-child(3) {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .quad-grid-14 .dessert-card:nth-child(4) {
+            grid-column: 2 / 4;
+            grid-row: 3;
+        }
+
+        /* Page 15 - Horizontal Stack Layout */
+        .quad-grid-15 {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 18px 22px;
+            height: calc(297mm - 120px);
+        }
+
+        .quad-grid-15 .dessert-card {
+            display: flex;
+            flex-direction: row;
+            gap: 18px;
+            flex: 1;
+        }
+
+        .quad-grid-15 .dessert-card .cake-image {
+            width: 200px;
+            height: 100%;
+            margin-bottom: 0;
+        }
+
+        .dessert-card {
+            background: white;
+            border-radius: 25px;
+            padding: 14px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page13 .dessert-card {
+            border: 5px solid #FFD700;
+            background: linear-gradient(to bottom, white, #FFFACD);
+        }
+
+        .page14 .dessert-card {
+            border: 5px solid #FF69B4;
+            background: linear-gradient(135deg, white, #FFE4E1);
+            transform: rotate(-1deg);
+        }
+
+        .page14 .dessert-card:nth-child(even) {
+            transform: rotate(1deg);
+        }
+
+        .page15 .dessert-card {
+            border: 5px solid #9370DB;
+            background: linear-gradient(to right, white, #E6E6FA);
+            border-radius: 50px 10px;
+        }
+
+        .dessert-card .cake-image {
+            width: 100%;
+            height: 160px;
+            background: #FFF5EE;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+            border: 3px dashed #C41E3A;
+        }
+
+        /* PAGE 16: Pastries */
+        .page16 {
+            background: linear-gradient(45deg, #FFE4B5 25%, transparent 25%, transparent 75%, #FFE4B5 75%),
+                        linear-gradient(45deg, #FFE4B5 25%, #FAFAD2 25%, #FAFAD2 75%, #FFE4B5 75%);
+            background-size: 50px 50px;
+            background-position: 0 0, 25px 25px;
+        }
+
+        .pastry-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            padding: 20px 25px;
+            height: calc(297mm - 120px);
+        }
+
+        .pastry-card {
+            background: white;
+            border-radius: 20px;
+            padding: 14px;
+            display: flex;
+            gap: 20px;
+            box-shadow: 0 12px 25px rgba(255, 140, 0, 0.3);
+            border-left: 10px solid #FF8C00;
+            border-right: 10px solid #FFD700;
+            flex: 1;
+        }
+
+        .pastry-card .cake-image {
+            width: 200px;
+            height: 100%;
+            margin-bottom: 0;
+            background: #FFF8DC;
+        }
+
+        /* PAGES 17-19: Special Premium Cakes (Before Customized) */
+
+        /* Page 17 - Mixed Fruit Cake - Vibrant Mosaic Layout */
+        .page17-new {
+            background: linear-gradient(135deg, #FFF8DC 0%, #FFEFD5 50%, #FFE4B5 100%);
+        }
+
+        .page17-new .page-header {
+            background: linear-gradient(to right, #FF6347, #FF7F50, #FFA07A);
+            font-family: 'Comic Sans MS', cursive;
+            border-bottom: 8px solid #FF4500;
+            box-shadow: 0 8px 25px rgba(255, 99, 71, 0.4);
+        }
+
+        .page17-new .page-title {
+            font-size: 46px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+        }
+
+        .mixed-fruit-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1.2fr 1fr;
+            gap: 22px;
+            padding: 25px 35px;
+            height: calc(297mm - 120px);
+        }
+
+        .mixed-fruit-card-main {
+            grid-column: 1 / 3;
+            background: white;
+            border-radius: 35px;
+            padding: 28px;
+            box-shadow: 0 20px 45px rgba(255, 99, 71, 0.3);
+            border: 7px solid #FF6347;
+            display: flex;
+            gap: 25px;
+        }
+
+        .mixed-fruit-card-main .cake-image {
+            width: 420px;
+            height: 100%;
+            background: linear-gradient(135deg, #FFF8DC, #FFE4B5);
+            border-radius: 25px;
+            border: 5px solid #FF4500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #FF6347;
+        }
+
+        .mixed-fruit-card-left {
+            background: linear-gradient(to bottom, white, #FFF8DC);
+            border-radius: 30px;
+            padding: 22px;
+            box-shadow: 0 15px 35px rgba(255, 99, 71, 0.25);
+            border-left: 8px solid #FF7F50;
+        }
+
+        .mixed-fruit-card-right {
+            background: linear-gradient(to bottom, white, #FFEFD5);
+            border-radius: 30px;
+            padding: 22px;
+            box-shadow: 0 15px 35px rgba(255, 99, 71, 0.25);
+            border-right: 8px solid #FFA07A;
+        }
+
+        /* Page 18 - Fusion Cake - Modern Split Layout */
+        .page18-new {
+            background: linear-gradient(45deg, #E8EAF6 25%, #C5CAE9 25%, #C5CAE9 50%, #E8EAF6 50%, #E8EAF6 75%, #C5CAE9 75%);
+            background-size: 60px 60px;
+        }
+
+        .page18-new .page-header {
+            background: linear-gradient(135deg, #3F51B5, #5C6BC0, #7E57C2);
+            font-family: 'Trebuchet MS', sans-serif;
+            border: 6px solid #FFD700;
+            border-top: none;
+            border-bottom: none;
+        }
+
+        .page18-new .page-title {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            text-shadow: 4px 4px 10px rgba(0,0,0,0.4);
+        }
+
+        .fusion-layout {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 25px;
+            padding: 28px 38px;
+            height: calc(297mm - 120px);
+        }
+
+        .fusion-card-left {
+            background: white;
+            border-radius: 40px;
+            padding: 30px;
+            box-shadow: -15px 15px 40px rgba(63, 81, 181, 0.3);
+            border: 7px solid #3F51B5;
+        }
+
+        .fusion-card-left .cake-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #E8EAF6, #C5CAE9);
+            border-radius: 30px;
+            border: 6px solid #5C6BC0;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #3F51B5;
+        }
+
+        .fusion-card-right {
+            background: linear-gradient(to bottom, white, #E8EAF6);
+            border-radius: 40px;
+            padding: 28px;
+            box-shadow: 15px 15px 40px rgba(63, 81, 181, 0.3);
+            border: 7px solid #7E57C2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Page 19 - Wine Cake - Sophisticated Elegant Layout */
+        .page19-new {
+            background: linear-gradient(to bottom, #4A148C 0%, #6A1B9A 50%, #8E24AA 100%);
+        }
+
+        .page19-new .page-header {
+            background: linear-gradient(to right, #6A1B9A, #7B1FA2, #8E24AA);
+            font-family: 'Palatino', serif;
+            border-top: 5px solid #FFD700;
+            border-bottom: 5px solid #FFD700;
+            box-shadow: 0 8px 30px rgba(106, 27, 154, 0.5);
+        }
+
+        .page19-new .page-title {
+            font-size: 50px;
+            font-style: italic;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-shadow: 4px 4px 12px rgba(0,0,0,0.5);
+        }
+
+        .wine-layout {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 45px;
+            height: calc(297mm - 120px);
+        }
+
+        .wine-card {
+            background: linear-gradient(135deg, #F3E5F5, #E1BEE7);
+            border-radius: 45px;
+            padding: 38px;
+            box-shadow: 0 30px 65px rgba(106, 27, 154, 0.5);
+            max-width: 720px;
+            width: 100%;
+            border: 10px double #6A1B9A;
+        }
+
+        .wine-card .cake-image {
+            width: 100%;
+            height: 360px;
+            background: linear-gradient(135deg, #4A148C, #8E24AA);
+            border-radius: 35px;
+            border: 6px solid #FFD700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #FFD700;
+        }
+
+        /* PAGES 17-21: Premium Customized Cakes */
+        
+        /* Page 17 - Photo Cake - Elegant Centered Layout */
+        .page17 {
+            background: linear-gradient(135deg, #F8F9FA 0%, #E9ECEF 100%);
+        }
+
+        .page17 .page-header {
+            background: linear-gradient(to right, #6C757D, #495057);
+            font-family: 'Garamond', serif;
+            border-bottom: 4px solid #FFD700;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .page17 .page-title {
+            font-size: 42px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .custom-cake-layout-1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 35px 40px;
+            height: calc(297mm - 120px);
+        }
+
+        .custom-cake-card-1 {
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            max-width: 650px;
+            width: 100%;
+            border: 6px solid #6C757D;
+        }
+
+        .custom-cake-card-1 .cake-image {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, #F8F9FA, #DEE2E6);
+            border-radius: 20px;
+            margin-bottom: 25px;
+            border: 4px dashed #6C757D;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #6C757D;
+        }
+
+        .custom-cake-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 15px;
+            font-family: 'Georgia', serif;
+            text-align: center;
+        }
+
+        .custom-cake-description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #6C757D;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .custom-cake-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .feature-item {
+            background: #F8F9FA;
+            padding: 12px 15px;
+            border-radius: 10px;
+            font-size: 14px;
+            color: #495057;
+            border-left: 4px solid #6C757D;
+        }
+
+        .custom-cake-price {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            color: #C41E3A;
+            margin-top: 20px;
+        }
+
+        /* Page 18 - Royal Cake - Luxurious Split Layout */
+        .page18 {
+            background: linear-gradient(to bottom, #FFF5E6 0%, #FFE4B5 100%);
+        }
+
+        .page18 .page-header {
+            background: linear-gradient(135deg, #8B4513, #D2691E);
+            font-family: 'Palatino', serif;
+            border-top: 5px solid #FFD700;
+            border-bottom: 5px solid #FFD700;
+            color: #FFD700;
+        }
+
+        .page18 .page-title {
+            font-size: 44px;
+            font-style: italic;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+        }
+
+        .custom-cake-layout-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 35px 40px;
+            height: calc(297mm - 120px);
+        }
+
+        .custom-cake-card-2-left {
+            background: white;
+            border-radius: 30px 0 0 30px;
+            padding: 30px;
+            box-shadow: -10px 0 30px rgba(139, 69, 19, 0.2);
+            border: 5px solid #D2691E;
+            border-right: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .custom-cake-card-2-left .cake-image {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(135deg, #FFF5E6, #FFE4B5);
+            border-radius: 20px;
+            border: 5px double #D2691E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #8B4513;
+        }
+
+        .custom-cake-card-2-right {
+            background: linear-gradient(to bottom, white, #FFF5E6);
+            border-radius: 0 30px 30px 0;
+            padding: 30px;
+            box-shadow: 10px 0 30px rgba(139, 69, 19, 0.2);
+            border: 5px solid #D2691E;
+            border-left: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Page 19 - Office Cake - Professional Grid Layout */
+        .page19 {
+            background: linear-gradient(45deg, #E3F2FD 0%, #BBDEFB 100%);
+        }
+
+        .page19 .page-header {
+            background: linear-gradient(to right, #1976D2, #0D47A1);
+            font-family: 'Arial', sans-serif;
+            border-bottom: 6px solid #FFC107;
+        }
+
+        .page19 .page-title {
+            font-size: 40px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .custom-cake-layout-3 {
+            display: flex;
+            flex-direction: column;
+            padding: 30px 40px;
+            gap: 25px;
+            height: calc(297mm - 120px);
+        }
+
+        .custom-cake-card-3-top {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(25, 118, 210, 0.2);
+            border-left: 8px solid #1976D2;
+            flex: 1.2;
+        }
+
+        .custom-cake-card-3-top .cake-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+            border-radius: 15px;
+            border: 4px solid #1976D2;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #1976D2;
+        }
+
+        .custom-cake-card-3-bottom {
+            background: linear-gradient(to right, white, #E3F2FD);
+            border-radius: 25px;
+            padding: 25px 30px;
+            box-shadow: 0 10px 30px rgba(25, 118, 210, 0.15);
+            border-top: 6px solid #FFC107;
+            flex: 0.8;
+        }
+
+        /* Page 20 - Cartoon Cake - Fun Playful Layout */
+        .page20 {
+            background: linear-gradient(135deg, #FFE5E5 0%, #FFF0F5 50%, #E6F3FF 100%);
+        }
+
+        .page20 .page-header {
+            background: linear-gradient(to right, #FF6B9D, #FFA500, #4CAF50, #2196F3);
+            font-family: 'Comic Sans MS', cursive;
+            border-radius: 0 0 40px 40px;
+            border: 5px solid white;
+            border-top: none;
+        }
+
+        .page20 .page-title {
+            font-size: 40px;
+            font-weight: 900;
+            text-shadow: 4px 4px 0px rgba(0,0,0,0.2);
+            letter-spacing: 2px;
+        }
+
+        .custom-cake-layout-4 {
+            display: grid;
+            grid-template-rows: 1.5fr 1fr;
+            gap: 25px;
+            padding: 30px 40px;
+            height: calc(297mm - 120px);
+        }
+
+        .custom-cake-card-4-main {
+            background: white;
+            border-radius: 40px;
+            padding: 35px;
+            box-shadow: 0 20px 50px rgba(255, 107, 157, 0.3);
+            border: 6px solid #FF6B9D;
+            display: flex;
+            gap: 30px;
+        }
+
+        .custom-cake-card-4-main .cake-image {
+            width: 420px;
+            height: 100%;
+            background: linear-gradient(135deg, #FFE5E5, #FFF0F5);
+            border-radius: 30px;
+            border: 5px dashed #FF6B9D;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #FF6B9D;
+        }
+
+        .custom-cake-card-4-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .custom-cake-card-4-footer {
+            background: linear-gradient(to right, #FF6B9D, #FFA500);
+            border-radius: 30px;
+            padding: 20px 30px;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Page 21 - 3D Cake - Modern Asymmetric Layout */
+        .page21 {
+            background: linear-gradient(to bottom right, #E8EAF6 0%, #C5CAE9 100%);
+        }
+
+        .page21 .page-header {
+            background: linear-gradient(135deg, #5E35B1, #7E57C2, #9575CD);
+            font-family: 'Trebuchet MS', sans-serif;
+            border-bottom: 8px solid #FFD700;
+            box-shadow: 0 6px 20px rgba(94, 53, 177, 0.4);
+        }
+
+        .page21 .page-title {
+            font-size: 42px;
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            text-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+        }
+
+        .custom-cake-layout-5 {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            grid-template-rows: auto 1fr;
+            gap: 25px;
+            padding: 30px 40px;
+            height: calc(297mm - 120px);
+        }
+
+        .custom-cake-card-5-hero {
+            grid-column: 1;
+            grid-row: 1 / 3;
+            background: white;
+            border-radius: 40px;
+            padding: 35px;
+            box-shadow: -15px 15px 40px rgba(94, 53, 177, 0.25);
+            border: 6px solid #7E57C2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .custom-cake-card-5-hero .cake-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #E8EAF6, #C5CAE9);
+            border-radius: 25px;
+            border: 5px solid #5E35B1;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #5E35B1;
+        }
+
+        .custom-cake-card-5-info {
+            grid-column: 2;
+            grid-row: 1;
+            background: linear-gradient(to bottom, white, #E8EAF6);
+            border-radius: 30px;
+            padding: 25px;
+            box-shadow: 0 15px 35px rgba(94, 53, 177, 0.2);
+            border-top: 6px solid #FFD700;
+        }
+
+        .custom-cake-card-5-price {
+            grid-column: 2;
+            grid-row: 2;
+            background: linear-gradient(135deg, #5E35B1, #7E57C2);
+            border-radius: 30px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(94, 53, 177, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .price-label {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .price-value {
+            font-size: 48px;
+            font-weight: 900;
+            color: #FFD700;
+        }
+
+        /* PAGES 22-31: More Premium Customized Cakes */
+
+        /* Page 22 - Heart Shape Cake - Romantic Diagonal Layout */
+        .page22 {
+            background: linear-gradient(135deg, #FFE4E8 0%, #FFD6DD 100%);
+        }
+
+        .page22 .page-header {
+            background: linear-gradient(to right, #E91E63, #C2185B);
+            font-family: 'Brush Script MT', cursive;
+            border-radius: 0 0 50px 50px;
+            border: 6px solid #FFD6DD;
+            border-top: none;
+        }
+
+        .page22 .page-title {
+            font-size: 46px;
+            font-weight: normal;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+        }
+
+        .custom-cake-layout-6 {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 25px;
+            padding: 30px 40px;
+            height: calc(297mm - 120px);
+            transform: rotate(-2deg);
+        }
+
+        .custom-cake-card-6 {
+            background: white;
+            border-radius: 50px;
+            padding: 35px;
+            box-shadow: 15px 15px 40px rgba(233, 30, 99, 0.25);
+            border: 8px double #E91E63;
+            transform: rotate(2deg);
+        }
+
+        .custom-cake-card-6 .cake-image {
+            width: 100%;
+            height: 380px;
+            background: linear-gradient(135deg, #FFE4E8, #FFD6DD);
+            border-radius: 40px;
+            border: 5px solid #E91E63;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #E91E63;
+        }
+
+        /* Page 23 - Number Cake - Bold Centered Layout */
+        .page23 {
+            background: linear-gradient(to bottom, #FFF3E0 0%, #FFE0B2 100%);
+        }
+
+        .page23 .page-header {
+            background: linear-gradient(135deg, #FF9800, #F57C00);
+            font-family: 'Impact', sans-serif;
+            border: 8px solid #FFE0B2;
+            border-top: none;
+            border-bottom: none;
+        }
+
+        .page23 .page-title {
+            font-size: 50px;
+            letter-spacing: 8px;
+            text-shadow: 5px 5px 0px rgba(0,0,0,0.2);
+        }
+
+        .custom-cake-layout-7 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px 40px;
+            height: calc(297mm - 120px);
+        }
+
+        .custom-cake-card-7 {
+            background: white;
+            border-radius: 40px;
+            padding: 40px;
+            box-shadow: 0 25px 60px rgba(255, 152, 0, 0.3);
+            max-width: 700px;
+            width: 100%;
+            border: 10px solid #FF9800;
+            border-radius: 20px;
+        }
+
+        .custom-cake-card-7 .cake-image {
+            width: 100%;
+            height: 320px;
+            background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
+            border-radius: 20px;
+            border: 6px dashed #FF9800;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #FF9800;
+            font-weight: bold;
+        }
+
+        /* Page 24 - Unicorn Cake - Magical Stacked Layout */
+        .page24 {
+            background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 50%, #D1C4E9 100%);
+        }
+
+        .page24 .page-header {
+            background: linear-gradient(to right, #AB47BC, #8E24AA, #7B1FA2);
+            font-family: 'Lucida Handwriting', cursive;
+            border-bottom: 8px solid #FFD700;
+            box-shadow: 0 8px 25px rgba(171, 71, 188, 0.4);
+        }
+
+        .page24 .page-title {
+            font-size: 44px;
+            text-shadow: 4px 4px 12px rgba(0,0,0,0.4);
+            letter-spacing: 3px;
+        }
+
+        .custom-cake-layout-8 {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 25px 35px;
+            height: calc(297mm - 120px);
+        }
+
+        .custom-cake-card-8-image {
+            background: white;
+            border-radius: 35px;
+            padding: 25px;
+            box-shadow: 0 20px 45px rgba(171, 71, 188, 0.3);
+            border: 6px solid #AB47BC;
+            flex: 1.5;
+        }
+
+        .custom-cake-card-8-image .cake-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #F3E5F5, #E1BEE7);
+            border-radius: 25px;
+            border: 5px solid #8E24AA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #AB47BC;
+        }
+
+        .custom-cake-card-8-content {
+            background: linear-gradient(to right, white, #F3E5F5);
+            border-radius: 30px;
+            padding: 25px 30px;
+            box-shadow: 0 15px 35px rgba(171, 71, 188, 0.25);
+            border-top: 6px solid #FFD700;
+            flex: 1;
+        }
+
+        /* Page 25 - Galaxy Cake - Cosmic Split Layout */
+        .page25 {
+            background: linear-gradient(135deg, #1A237E 0%, #283593 50%, #3F51B5 100%);
+        }
+
+        .page25 .page-header {
+            background: linear-gradient(to right, #0D47A1, #1565C0, #1976D2);
+            font-family: 'Courier New', monospace;
+            border: 5px solid #FFD700;
+            box-shadow: 0 0 30px rgba(25, 118, 210, 0.6);
+        }
+
+        .page25 .page-title {
+            font-size: 42px;
+            font-weight: bold;
+            letter-spacing: 10px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .custom-cake-layout-9 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 30px 40px;
+            height: calc(297mm - 120px);
+        }
+
+        .custom-cake-card-9-left {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px 0 0 30px;
+            padding: 30px;
+            box-shadow: -15px 0 40px rgba(13, 71, 161, 0.4);
+            border: 5px solid #1976D2;
+            border-right: none;
+        }
+
+        .custom-cake-card-9-left .cake-image {
+            width: 100%;
+            height: 420px;
+            background: linear-gradient(135deg, #1A237E, #3F51B5);
+            border-radius: 20px;
+            border: 5px solid #FFD700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: white;
+        }
+
+        .custom-cake-card-9-right {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 0 30px 30px 0;
+            padding: 30px;
+            box-shadow: 15px 0 40px rgba(13, 71, 161, 0.4);
+            border: 5px solid #1976D2;
+            border-left: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Page 26 - Wedding Cake - Elegant Tiered Layout */
+        .page26 {
+            background: linear-gradient(to bottom, #FFFBF5 0%, #F5F5DC 100%);
+        }
+
+        .page26 .page-header {
+            background: linear-gradient(to right, #D4AF37, #FFD700, #D4AF37);
+            font-family: 'Book Antiqua', serif;
+            border-top: 3px solid white;
+            border-bottom: 3px solid white;
+            color: white;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .page26 .page-title {
+            font-size: 48px;
+            font-weight: 600;
+            font-style: italic;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+        }
+
+        .custom-cake-layout-10 {
+            display: grid;
+            grid-template-rows: 1.3fr 1fr;
+            gap: 18px;
+            padding: 25px 35px;
+            height: calc(297mm - 120px);
+        }
+
+        .custom-cake-card-10-top {
+            background: white;
+            border-radius: 40px;
+            padding: 28px;
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.3);
+            border: 8px double #D4AF37;
+            display: flex;
+            gap: 25px;
+        }
+
+        .custom-cake-card-10-top .cake-image {
+            width: 400px;
+            height: 100%;
+            background: linear-gradient(135deg, #FFFBF5, #F5F5DC);
+            border-radius: 30px;
+            border: 6px solid #D4AF37;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #D4AF37;
+        }
+
+        .custom-cake-card-10-bottom {
+            background: linear-gradient(to right, white, #FFFBF5);
+            border-radius: 35px;
+            padding: 20px 30px;
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.25);
+            border: 5px solid #D4AF37;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        /* Page 27 - Sports Cake - Dynamic Angular Layout */
+        .page27 {
+            background: linear-gradient(45deg, #E8F5E9 0%, #C8E6C9 100%);
+        }
+
+        .page27 .page-header {
+            background: linear-gradient(135deg, #2E7D32, #388E3C, #43A047);
+            font-family: 'Arial Black', sans-serif;
+            border-left: 15px solid #FFD700;
+            border-right: 15px solid #FFD700;
+        }
+
+        .page27 .page-title {
+            font-size: 46px;
+            font-weight: 900;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            transform: skew(-5deg);
+        }
+
+        .custom-cake-layout-11 {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            grid-template-rows: 1fr 0.8fr;
+            gap: 20px;
+            padding: 25px 35px;
+            height: calc(297mm - 120px);
+        }
+
+        .custom-cake-card-11-hero {
+            grid-column: 1;
+            grid-row: 1 / 3;
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 10px 10px 40px rgba(46, 125, 50, 0.3);
+            border-left: 10px solid #2E7D32;
+            transform: skew(-2deg);
+        }
+
+        .custom-cake-card-11-hero .cake-image {
+            width: 100%;
+            height: 430px;
+            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+            border-radius: 20px;
+            border: 5px solid #388E3C;
+            margin-bottom: 20px;
+            transform: skew(2deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #2E7D32;
+        }
+
+        .custom-cake-card-11-info {
+            grid-column: 2;
+            background: linear-gradient(to bottom, white, #E8F5E9);
+            border-radius: 25px;
+            padding: 25px;
+            box-shadow: 5px 5px 25px rgba(46, 125, 50, 0.2);
+            border-top: 8px solid #FFD700;
+        }
+
+        .custom-cake-card-11-price {
+            grid-column: 2;
+            background: #2E7D32;
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: 5px 5px 25px rgba(46, 125, 50, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        /* Page 28 - Designer Cake - Artistic Grid Layout */
+        .page28 {
+            background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 50%, #FFE082 100%);
+        }
+
+        .page28 .page-header {
+            background: linear-gradient(to right, #F57F17, #F9A825, #FBC02D);
+            font-family: 'Palatino Linotype', serif;
+            border-radius: 0 0 35px 35px;
+            border: 6px solid #F57F17;
+            border-top: none;
+        }
+
+        .page28 .page-title {
+            font-size: 44px;
+            font-style: italic;
+            font-weight: 700;
+            letter-spacing: 5px;
+        }
+
+        .custom-cake-layout-12 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1.5fr 1fr;
+            gap: 20px;
+            padding: 25px 35px;
+            height: calc(297mm - 120px);
+        }
+
+        .custom-cake-card-12-main {
+            grid-column: 1 / 3;
+            grid-row: 1;
+            background: white;
+            border-radius: 35px;
+            padding: 30px;
+            box-shadow: 0 20px 45px rgba(245, 127, 23, 0.3);
+            border: 6px solid #F57F17;
+        }
+
+        .custom-cake-card-12-main .cake-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #FFF8E1, #FFE082);
+            border-radius: 25px;
+            border: 5px dashed #F9A825;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #F57F17;
+        }
+
+        .custom-cake-card-12-side {
+            grid-column: 3;
+            grid-row: 1 / 3;
+            background: linear-gradient(to bottom, white, #FFF8E1);
+            border-radius: 35px;
+            padding: 25px;
+            box-shadow: 0 15px 35px rgba(245, 127, 23, 0.25);
+            border-right: 8px solid #F57F17;
+        }
+
+        .custom-cake-card-12-bottom {
+            grid-column: 1 / 3;
+            grid-row: 2;
+            background: white;
+            border-radius: 30px;
+            padding: 20px 30px;
+            box-shadow: 0 10px 30px rgba(245, 127, 23, 0.2);
+            border-bottom: 6px solid #FBC02D;
+        }
+
+        /* Page 29 - Floral Cake - Garden Layout */
+        .page29 {
+            background: linear-gradient(135deg, #FCE4EC 0%, #F8BBD0 50%, #F48FB1 100%);
+        }
+
+        .page29 .page-header {
+            background: linear-gradient(to right, #C2185B, #D81B60, #E91E63);
+            font-family: 'Georgia', serif;
+            border-radius: 50px;
+            margin: 0 40px;
+            border: 5px solid white;
+        }
+
+        .page29 .page-title {
+            font-size: 46px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            font-style: italic;
+        }
+
+        .custom-cake-layout-13 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 25px 40px;
+            gap: 20px;
+            height: calc(297mm - 120px);
+        }
+
+        .custom-cake-card-13 {
+            background: white;
+            border-radius: 60px 10px;
+            padding: 35px;
+            box-shadow: 0 25px 55px rgba(194, 24, 91, 0.3);
+            max-width: 680px;
+            width: 100%;
+            border: 8px solid #E91E63;
+        }
+
+        .custom-cake-card-13 .cake-image {
+            width: 100%;
+            height: 360px;
+            background: linear-gradient(135deg, #FCE4EC, #F8BBD0);
+            border-radius: 50px 10px;
+            border: 6px double #C2185B;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #C2185B;
+        }
+
+        /* Page 30 - Superhero Cake - Comic Book Layout */
+        .page30 {
+            background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 50%, #EF9A9A 100%);
+        }
+
+        .page30 .page-header {
+            background: linear-gradient(135deg, #B71C1C, #C62828, #D32F2F);
+            font-family: 'Impact', sans-serif;
+            border: 8px solid #FFEB3B;
+            transform: skew(-3deg);
+        }
+
+        .page30 .page-title {
+            font-size: 48px;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            transform: skew(3deg);
+            text-shadow: 4px 4px 0px #000;
+        }
+
+        .custom-cake-layout-14 {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 25px;
+            padding: 30px 40px;
+            height: calc(297mm - 120px);
+        }
+
+        .custom-cake-card-14-main {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 15px 15px 0px #D32F2F;
+            border: 6px solid #000;
+        }
+
+        .custom-cake-card-14-main .cake-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #FFEBEE, #FFCDD2);
+            border-radius: 15px;
+            border: 5px solid #B71C1C;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #B71C1C;
+        }
+
+        .custom-cake-card-14-side {
+            background: #FFEB3B;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 10px 10px 0px #D32F2F;
+            border: 6px solid #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Page 31 - Minimalist Cake - Modern Clean Layout */
+        .page31 {
+            background: #FAFAFA;
+        }
+
+        .page31 .page-header {
+            background: linear-gradient(to right, #212121, #424242, #616161);
+            font-family: 'Helvetica', sans-serif;
+            border-bottom: 2px solid #000;
+        }
+
+        .page31 .page-title {
+            font-size: 42px;
+            font-weight: 300;
+            letter-spacing: 12px;
+            text-transform: uppercase;
+        }
+
+        .custom-cake-layout-15 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            height: calc(297mm - 120px);
+        }
+
+        .custom-cake-card-15 {
+            background: white;
+            border-radius: 0;
+            padding: 45px;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.15);
+            max-width: 680px;
+            width: 100%;
+            border: 1px solid #E0E0E0;
+        }
+
+        .custom-cake-card-15 .cake-image {
+            width: 100%;
+            height: 380px;
+            background: #F5F5F5;
+            border-radius: 0;
+            border: none;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #9E9E9E;
+            font-weight: 300;
+        }
+
+        /* PAGES 32-36: More Premium Customized Cakes */
+
+        /* Page 32 - Drip Cake - Flowing Layout */
+        .page32 {
+            background: linear-gradient(to bottom, #FFF9C4 0%, #FFF59D 50%, #FFF176 100%);
+        }
+
+        .page32 .page-header {
+            background: linear-gradient(135deg, #F57F17, #FB8C00, #FF9800);
+            font-family: 'Brush Script MT', cursive;
+            border-bottom: 10px solid #795548;
+            box-shadow: 0 10px 30px rgba(245, 127, 23, 0.4);
+        }
+
+        .page32 .page-title {
+            font-size: 50px;
+            font-weight: normal;
+            letter-spacing: 4px;
+            text-shadow: 4px 4px 8px rgba(121, 85, 72, 0.5);
+        }
+
+        .custom-cake-layout-16 {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 20px;
+            padding: 25px 35px;
+            height: calc(297mm - 120px);
+        }
+
+        .custom-cake-card-16-left {
+            background: white;
+            border-radius: 30px;
+            padding: 25px;
+            box-shadow: -15px 15px 35px rgba(245, 127, 23, 0.3);
+            border: 6px solid #F57F17;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .custom-cake-card-16-right {
+            background: white;
+            border-radius: 30px;
+            padding: 25px;
+            box-shadow: 15px 15px 35px rgba(245, 127, 23, 0.3);
+            border: 6px solid #FF9800;
+        }
+
+        .custom-cake-card-16-right .cake-image {
+            width: 100%;
+            height: 420px;
+            background: linear-gradient(135deg, #FFF9C4, #FFF176);
+            border-radius: 20px;
+            border: 5px solid #F57F17;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #F57F17;
+        }
+
+        /* Page 33 - Geode Cake - Crystal Layout */
+        .page33 {
+            background: linear-gradient(135deg, #E0F2F1 0%, #B2DFDB 50%, #80CBC4 100%);
+        }
+
+        .page33 .page-header {
+            background: linear-gradient(to right, #00695C, #00897B, #26A69A);
+            font-family: 'Georgia', serif;
+            border: 8px double #FFD700;
+            box-shadow: 0 0 40px rgba(0, 105, 92, 0.5);
+        }
+
+        .page33 .page-title {
+            font-size: 46px;
+            font-weight: 700;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 10px rgba(255, 215, 0, 0.6);
+        }
+
+        .custom-cake-layout-17 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 25px 40px;
+            gap: 18px;
+            height: calc(297mm - 120px);
+        }
+
+        .custom-cake-card-17-main {
+            background: white;
+            border-radius: 50px 10px 50px 10px;
+            padding: 30px;
+            box-shadow: 0 25px 55px rgba(0, 105, 92, 0.35);
+            width: 100%;
+            max-width: 700px;
+            border: 8px solid #00897B;
+        }
+
+        .custom-cake-card-17-main .cake-image {
+            width: 100%;
+            height: 340px;
+            background: linear-gradient(135deg, #E0F2F1, #80CBC4);
+            border-radius: 40px 10px 40px 10px;
+            border: 6px solid #00695C;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #00695C;
+        }
+
+        /* Page 34 - Ombre Cake - Gradient Layers Layout */
+        .page34 {
+            background: linear-gradient(to bottom, #E1F5FE 0%, #B3E5FC 20%, #81D4FA 40%, #4FC3F7 60%, #29B6F6 80%, #03A9F4 100%);
+        }
+
+        .page34 .page-header {
+            background: linear-gradient(to right, #0277BD, #0288D1, #039BE5);
+            font-family: 'Arial', sans-serif;
+            border-radius: 0 0 50px 50px;
+            border: 6px solid white;
+            border-top: none;
+        }
+
+        .page34 .page-title {
+            font-size: 44px;
+            font-weight: 800;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+        }
+
+        .custom-cake-layout-18 {
+            display: grid;
+            grid-template-rows: 1.5fr 1fr;
+            gap: 20px;
+            padding: 25px 35px;
+            height: calc(297mm - 120px);
+        }
+
+        .custom-cake-card-18-top {
+            background: white;
+            border-radius: 35px;
+            padding: 28px;
+            box-shadow: 0 20px 50px rgba(2, 119, 189, 0.3);
+            border: 7px solid #0288D1;
+            display: flex;
+            gap: 25px;
+        }
+
+        .custom-cake-card-18-top .cake-image {
+            width: 400px;
+            height: 100%;
+            background: linear-gradient(to bottom, #E1F5FE, #81D4FA, #29B6F6);
+            border-radius: 25px;
+            border: 5px solid #0277BD;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #0277BD;
+        }
+
+        .custom-cake-card-18-bottom {
+            background: linear-gradient(to right, white, #E1F5FE);
+            border-radius: 30px;
+            padding: 22px 28px;
+            box-shadow: 0 15px 40px rgba(2, 119, 189, 0.25);
+            border: 5px solid #039BE5;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        /* Page 35 - Rustic Cake - Organic Natural Layout */
+        .page35 {
+            background: linear-gradient(135deg, #EFEBE9 0%, #D7CCC8 100%);
+        }
+
+        .page35 .page-header {
+            background: linear-gradient(to right, #4E342E, #5D4037, #6D4C41);
+            font-family: 'Georgia', serif;
+            border-top: 5px solid #8D6E63;
+            border-bottom: 5px solid #8D6E63;
+        }
+
+        .page35 .page-title {
+            font-size: 46px;
+            font-weight: 600;
+            font-style: italic;
+            letter-spacing: 5px;
+        }
+
+        .custom-cake-layout-19 {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            grid-template-rows: 1fr 0.9fr;
+            gap: 20px;
+            padding: 25px 35px;
+            height: calc(297mm - 120px);
+        }
+
+        .custom-cake-card-19-hero {
+            grid-column: 1;
+            grid-row: 1 / 3;
+            background: white;
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: 10px 10px 40px rgba(78, 52, 46, 0.3);
+            border: 6px solid #5D4037;
+        }
+
+        .custom-cake-card-19-hero .cake-image {
+            width: 100%;
+            height: 410px;
+            background: linear-gradient(135deg, #EFEBE9, #D7CCC8);
+            border-radius: 15px;
+            border: 5px solid #4E342E;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #4E342E;
+        }
+
+        .custom-cake-card-19-info {
+            grid-column: 2;
+            grid-row: 1;
+            background: linear-gradient(to bottom, white, #EFEBE9);
+            border-radius: 20px;
+            padding: 22px;
+            box-shadow: 5px 5px 25px rgba(78, 52, 46, 0.25);
+            border: 4px solid #8D6E63;
+        }
+
+        .custom-cake-card-19-price {
+            grid-column: 2;
+            grid-row: 2;
+            background: #4E342E;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 5px 5px 25px rgba(78, 52, 46, 0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #EFEBE9;
+        }
+
+        /* Page 36 - Metallic Cake - Luxe Modern Layout */
+        .page36 {
+            background: linear-gradient(135deg, #212121 0%, #424242 50%, #616161 100%);
+        }
+
+        .page36 .page-header {
+            background: linear-gradient(to right, #FFD700, #FFC107, #FFD700);
+            font-family: 'Impact', sans-serif;
+            border: 8px solid #212121;
+            color: #212121;
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.6);
+        }
+
+        .page36 .page-title {
+            font-size: 48px;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .custom-cake-layout-20 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 40px;
+            height: calc(297mm - 120px);
+        }
+
+        .custom-cake-card-20 {
+            background: linear-gradient(135deg, #FAFAFA, #E0E0E0);
+            border-radius: 40px;
+            padding: 35px;
+            box-shadow: 0 30px 70px rgba(255, 215, 0, 0.4);
+            max-width: 700px;
+            width: 100%;
+            border: 10px solid #FFD700;
+        }
+
+        .custom-cake-card-20 .cake-image {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, #212121, #616161);
+            border-radius: 30px;
+            border: 6px solid #FFD700;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #FFD700;
+        }
+
+        /* CONTACT US PAGE - Pink Red Cream Theme */
+        .page-contact {
+            background: linear-gradient(135deg, #FFE4E8 0%, #FFD6DD 50%, #FFC9D0 100%);
+        }
+
+        .page-contact .page-header {
+            background: linear-gradient(to right, #C41E3A, #E91E63, #C41E3A);
+            font-family: 'Impact', sans-serif;
+            border: none;
+            color: white;
+            box-shadow: 0 10px 40px rgba(196, 30, 58, 0.4);
+        }
+
+        .page-contact .page-title {
+            font-size: 52px;
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 16px;
+            padding: 22px 60px;
+            height: calc(297mm - 120px);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .contact-header-banner {
+            grid-column: 1 / 3;
+            background: linear-gradient(to right, #FFFACD, #FFF8DC);
+            border-radius: 25px;
+            padding: 18px 28px;
+            box-shadow: 0 12px 30px rgba(196, 30, 58, 0.3);
+            text-align: center;
+            border: 4px solid #C41E3A;
+        }
+
+        .contact-header-banner h2 {
+            font-size: 28px;
+            color: #C41E3A;
+            margin-bottom: 8px;
+            font-weight: 900;
+        }
+
+        .contact-header-banner p {
+            font-size: 16px;
+            color: #E91E63;
+            margin: 0;
+        }
+
+        .contact-info-card {
+            background: white;
+            border-radius: 28px;
+            padding: 22px;
+            box-shadow: 0 15px 35px rgba(196, 30, 58, 0.25);
+            border-left: 8px solid #E91E63;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
+            padding: 12px;
+            background: linear-gradient(to right, #FFE4E8, #FFD6DD);
+            border-radius: 12px;
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: #C41E3A;
+            color: #FFFACD;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-size: 14px;
+            color: #C41E3A;
+            margin: 0 0 4px 0;
+            font-weight: 700;
+        }
+
+        .contact-details p {
+            font-size: 13px;
+            color: #E91E63;
+            margin: 0;
+        }
+
+        .contact-social-card {
+            background: linear-gradient(135deg, #E91E63, #FF69B4);
+            border-radius: 28px;
+            padding: 22px;
+            box-shadow: 0 15px 35px rgba(196, 30, 58, 0.25);
+            color: white;
+            border: 4px solid #FFFACD;
+        }
+
+        .social-icons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .social-icon {
+            background: white;
+            color: #E91E63;
+            padding: 14px 8px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: bold;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        .contact-hours-card {
+            background: linear-gradient(to bottom, white, #FFE4E8);
+            border-radius: 28px;
+            padding: 22px;
+            box-shadow: 0 15px 35px rgba(196, 30, 58, 0.25);
+            border-right: 8px solid #E91E63;
+        }
+
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 12px;
+            margin-bottom: 8px;
+            background: #FFD6DD;
+            border-radius: 10px;
+            font-size: 13px;
+            color: #C41E3A;
+        }
+
+        .contact-footer {
+            grid-column: 1 / 3;
+            background: linear-gradient(to right, #FFFACD, #FFF8DC, #FFFACD);
+            border-radius: 25px;
+            padding: 18px 22px;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(196, 30, 58, 0.3);
+            border: 4px solid #C41E3A;
+        }
+
+        .contact-footer h3 {
+            font-size: 24px;
+            color: #C41E3A;
+            margin: 0 0 10px 0;
+            font-weight: 900;
+        }
+
+        .contact-footer p {
+            font-size: 14px;
+            color: #E91E63;
+            margin: 0;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO PAGE -->
+    <div class="page hero-page">
+        <div class="hero-content">
+            <div class="hero-logo">Cake Forever</div>
+            <div class="hero-tagline">Where Every Slice Tells a Sweet Story</div>
+            <div class="hero-description">
+                Indulge in our handcrafted cakes made with the finest ingredients, 
+                baked fresh daily with love. From rich chocolate delights to fruity fantasies, 
+                we create moments worth celebrating.
+            </div>
+            <div class="hero-features">
+                <div class="hero-feature">✨ Fresh Daily</div>
+                <div class="hero-feature">🎂 Custom Orders</div>
+                <div class="hero-feature">💝 Premium Quality</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 1: Chocolate Cakes ₹250 (1-5) -->
+    <div class="page page1">
+        <div class="page-header">
+            <div class="page-title">Chocolate Delights</div>
+            <div class="page-subtitle">Classic Chocolate Cakes - ₹250 (Half Kg)</div>
+        </div>
+        <div class="grid-5-diagonal">
+            <div class="cake-card-1">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Death by Chocolate</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹250</div>
+            </div>
+            <div class="cake-card-1">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Black Forest</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹250</div>
+            </div>
+            <div class="cake-card-1">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Chocolate Truffle</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹250</div>
+            </div>
+            <div class="cake-card-1">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Choco Vanilla</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹250</div>
+            </div>
+            <div class="cake-card-1">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-info">
+                    <div class="cake-name">Dark Chocolate Fudge</div>
+                    <div class="cake-weight">Weight: Half Kg (500g)</div>
+                    <div class="cake-price">₹250</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: Chocolate Cakes ₹250 (6-10) -->
+    <div class="page page2">
+        <div class="page-header">
+            <div class="page-title">Chocolate Delights</div>
+            <div class="page-subtitle">Classic Chocolate Cakes - ₹250 (Half Kg) - Continued</div>
+        </div>
+        <div class="split-grid">
+            <div class="cake-card-2">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Belgium Chocolate</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹250</div>
+            </div>
+            <div class="cake-card-2">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Chocolate Chip Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹250</div>
+            </div>
+            <div class="cake-card-2">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Chocolate Oreo Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹250</div>
+            </div>
+            <div class="cake-card-2">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Ferrero Rocher Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹250</div>
+            </div>
+            <div class="cake-card-2">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-info">
+                    <div class="cake-name">KitKat Chocolate Cake</div>
+                    <div class="cake-weight">Weight: Half Kg (500g)</div>
+                    <div class="cake-price">₹250</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 3: Fruit Cakes ₹250 (1-5) -->
+    <div class="page page3">
+        <div class="page-header">
+            <div class="page-title">Fruity Fantasies</div>
+            <div class="page-subtitle">Fresh Fruit Cakes - ₹250 (Half Kg)</div>
+        </div>
+        <div class="zigzag-grid">
+            <div class="cake-card-3">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Fresh Strawberry Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹250</div>
+            </div>
+            <div class="cake-card-3">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Pineapple Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹250</div>
+            </div>
+            <div class="cake-card-3">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Mixed Fruit Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹250</div>
+            </div>
+            <div class="cake-card-3">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Mango Delight</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹250</div>
+            </div>
+            <div class="cake-card-3">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Blueberry Blast</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹250</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 4: Fruit Cakes ₹250 (6-10) -->
+    <div class="page page4">
+        <div class="page-header">
+            <div class="page-title">Fruity Fantasies</div>
+            <div class="page-subtitle">Fresh Fruit Cakes - ₹250 (Half Kg) - Continued</div>
+        </div>
+        <div class="circular-grid">
+            <div class="cake-card-4">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Kiwi Fruit Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹250</div>
+            </div>
+            <div class="cake-card-4">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Orange Zest Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹250</div>
+            </div>
+            <div class="cake-card-4">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Cherry Berry Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹250</div>
+            </div>
+            <div class="cake-card-4">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Raspberry Delight</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹250</div>
+            </div>
+            <div class="cake-card-4">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Tropical Fruit Paradise</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹250</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 5: Chocolate Cakes ₹300 (1-5) -->
+    <div class="page page5">
+        <div class="page-header">
+            <div class="page-title">Premium Chocolate</div>
+            <div class="page-subtitle">Premium Chocolate Cakes - ₹300 (Half Kg)</div>
+        </div>
+        <div class="asymmetric-grid">
+            <div class="cake-card-5">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Triple Layer Chocolate</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹300</div>
+            </div>
+            <div class="cake-card-5">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Chocolate Mousse</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹300</div>
+            </div>
+            <div class="cake-card-5">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Chocolate Caramel</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹300</div>
+            </div>
+            <div class="cake-card-5">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Hazelnut Chocolate</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹300</div>
+            </div>
+            <div class="cake-card-5">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Choco Almond Crunch</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹300</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 6: Chocolate Cakes ₹300 (6-10) -->
+    <div class="page page6">
+        <div class="page-header">
+            <div class="page-title">Premium Chocolate</div>
+            <div class="page-subtitle">Premium Chocolate Cakes - ₹300 (Half Kg) - Continued</div>
+        </div>
+        <div class="horizontal-stack">
+            <div class="cake-card-6">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-info">
+                    <div class="cake-name">Coffee Chocolate Cake</div>
+                    <div class="cake-weight">Weight: Half Kg (500g)</div>
+                    <div class="cake-price">₹300</div>
+                </div>
+            </div>
+            <div class="cake-card-6">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-info">
+                    <div class="cake-name">White Forest Cake</div>
+                    <div class="cake-weight">Weight: Half Kg (500g)</div>
+                    <div class="cake-price">₹300</div>
+                </div>
+            </div>
+            <div class="cake-card-6">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-info">
+                    <div class="cake-name">Chocolate Raspberry Cake</div>
+                    <div class="cake-weight">Weight: Half Kg (500g)</div>
+                    <div class="cake-price">₹300</div>
+                </div>
+            </div>
+            <div class="cake-card-6">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-info">
+                    <div class="cake-name">German Chocolate Cake</div>
+                    <div class="cake-weight">Weight: Half Kg (500g)</div>
+                    <div class="cake-price">₹300</div>
+                </div>
+            </div>
+            <div class="cake-card-6">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-info">
+                    <div class="cake-name">Chocolate Ganache Cake</div>
+                    <div class="cake-weight">Weight: Half Kg (500g)</div>
+                    <div class="cake-price">₹300</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 7: Fruit Cakes ₹300 (1-5) -->
+    <div class="page page7">
+        <div class="page-header">
+            <div class="page-title">Premium Fruit Selection</div>
+            <div class="page-subtitle">Premium Fruit Cakes - ₹300 (Half Kg)</div>
+        </div>
+        <div class="corner-grid">
+            <div class="cake-card-7">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Exotic Fruit Mix</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹300</div>
+            </div>
+            <div class="cake-card-7">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Passion Fruit Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹300</div>
+            </div>
+            <div class="cake-card-7">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Lychee Delight</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹300</div>
+            </div>
+            <div class="cake-card-7">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Peach Paradise</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹300</div>
+            </div>
+            <div class="cake-card-7">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Watermelon Wonder</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹300</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 8: Fruit Cakes ₹300 (6-10) -->
+    <div class="page page8">
+        <div class="page-header">
+            <div class="page-title">Premium Fruit Selection</div>
+            <div class="page-subtitle">Premium Fruit Cakes - ₹300 (Half Kg) - Continued</div>
+        </div>
+        <div class="diamond-grid">
+            <div class="cake-card-8">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Apple Cinnamon Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹300</div>
+            </div>
+            <div class="cake-card-8">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Banana Walnut Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹300</div>
+            </div>
+            <div class="cake-card-8">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Guava Cream Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹300</div>
+            </div>
+            <div class="cake-card-8">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Fig & Honey Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹300</div>
+            </div>
+            <div class="cake-card-8">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Dragon Fruit Fantasy</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹300</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 9: Chocolate Cakes ₹350 (1-5) -->
+    <div class="page page9">
+        <div class="page-header">
+            <div class="page-title">Deluxe Chocolate</div>
+            <div class="page-subtitle">Deluxe Chocolate Cakes - ₹350 (Half Kg)</div>
+        </div>
+        <div class="masonry-grid">
+            <div class="cake-card-9">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Red Velvet Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹350</div>
+            </div>
+            <div class="cake-card-9">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Tiramisu Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹350</div>
+            </div>
+            <div class="cake-card-9">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Brownie Fudge Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹350</div>
+            </div>
+            <div class="cake-card-9">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Choco Lava Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹350</div>
+            </div>
+            <div class="cake-card-9">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Marble Chocolate Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹350</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 10: Chocolate Cakes ₹350 (6-10) -->
+    <div class="page page10">
+        <div class="page-header">
+            <div class="page-title">Deluxe Chocolate</div>
+            <div class="page-subtitle">Deluxe Chocolate Cakes - ₹350 (Half Kg) - Continued</div>
+        </div>
+        <div class="wave-grid">
+            <div class="cake-card-10">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Mint Chocolate Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹350</div>
+            </div>
+            <div class="cake-card-10">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Peanut Butter Chocolate</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹350</div>
+            </div>
+            <div class="cake-card-10">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Salted Caramel Chocolate</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹350</div>
+            </div>
+            <div class="cake-card-10">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Butterscotch Chocolate</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹350</div>
+            </div>
+            <div class="cake-card-10">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Double Decker Chocolate</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹350</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 11: Chocolate Cakes ₹400 (1-5) -->
+    <div class="page page11">
+        <div class="page-header">
+            <div class="page-title">Luxury Chocolate</div>
+            <div class="page-subtitle">Luxury Chocolate Cakes - ₹400 (Half Kg)</div>
+        </div>
+        <div class="ribbon-grid">
+            <div class="cake-card-11">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-info">
+                    <div class="cake-name">Nutella Overload Cake</div>
+                    <div class="cake-weight">Weight: Half Kg (500g)</div>
+                    <div class="cake-price">₹400</div>
+                </div>
+            </div>
+            <div class="cake-card-11">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-info">
+                    <div class="cake-name">Lotus Biscoff Cake</div>
+                    <div class="cake-weight">Weight: Half Kg (500g)</div>
+                    <div class="cake-price">₹400</div>
+                </div>
+            </div>
+            <div class="cake-card-11">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-info">
+                    <div class="cake-name">Premium Hazelnut Cake</div>
+                    <div class="cake-weight">Weight: Half Kg (500g)</div>
+                    <div class="cake-price">₹400</div>
+                </div>
+            </div>
+            <div class="cake-card-11">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-info">
+                    <div class="cake-name">Midnight Chocolate Cake</div>
+                    <div class="cake-weight">Weight: Half Kg (500g)</div>
+                    <div class="cake-price">₹400</div>
+                </div>
+            </div>
+            <div class="cake-card-11">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-info">
+                    <div class="cake-name">Triple Chocolate Indulgence</div>
+                    <div class="cake-weight">Weight: Half Kg (500g)</div>
+                    <div class="cake-price">₹400</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 12: Chocolate Cakes ₹400 (6-10) -->
+    <div class="page page12">
+        <div class="page-header">
+            <div class="page-title">Luxury Chocolate</div>
+            <div class="page-subtitle">Luxury Chocolate Cakes - ₹400 (Half Kg) - Continued</div>
+        </div>
+        <div class="final-grid">
+            <div class="cake-card-12">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Snickers Chocolate Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹400</div>
+            </div>
+            <div class="cake-card-12">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Bounty Chocolate Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹400</div>
+            </div>
+            <div class="cake-card-12">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Dark Fantasy Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹400</div>
+            </div>
+            <div class="cake-card-12">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Silk Chocolate Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹400</div>
+            </div>
+            <div class="cake-card-12">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Chocolate Espresso Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹400</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 13: Premium Dessert Cakes ₹350 -->
+    <div class="page page13">
+        <div class="page-header">
+            <div class="page-title">Premium Desserts</div>
+            <div class="page-subtitle">Exotic Dessert Cakes - ₹350 (Half Kg)</div>
+        </div>
+        <div class="quad-grid-13">
+            <div class="dessert-card">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Kaju Katli Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹350</div>
+            </div>
+            <div class="dessert-card">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Rabdi Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹350</div>
+            </div>
+            <div class="dessert-card">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Rasmalai Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹350</div>
+            </div>
+            <div class="dessert-card">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Blueberry Cheesecake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹350</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 14: Premium Dessert Cakes ₹450 -->
+    <div class="page page14">
+        <div class="page-header">
+            <div class="page-title">Luxury Desserts</div>
+            <div class="page-subtitle">Premium Dessert Cakes - ₹450 (Half Kg)</div>
+        </div>
+        <div class="quad-grid-14">
+            <div class="dessert-card">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Red Velvet Cheesecake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹450</div>
+            </div>
+            <div class="dessert-card">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Lotus Biscoff Cheesecake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹450</div>
+            </div>
+            <div class="dessert-card">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Hazelnut Nutella Cake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹450</div>
+            </div>
+            <div class="dessert-card">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-name">Classic Cheesecake</div>
+                <div class="cake-weight">Weight: Half Kg (500g)</div>
+                <div class="cake-price">₹450</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 15: Premium Dessert Cakes ₹550 -->
+    <div class="page page15">
+        <div class="page-header">
+            <div class="page-title">Elite Desserts</div>
+            <div class="page-subtitle">Elite Dessert Cakes - ₹550 (Half Kg)</div>
+        </div>
+        <div class="quad-grid-15">
+            <div class="dessert-card">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-info">
+                    <div class="cake-name">Kaju Katli Special</div>
+                    <div class="cake-weight">Weight: Half Kg (500g)</div>
+                    <div class="cake-price">₹550</div>
+                </div>
+            </div>
+            <div class="dessert-card">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-info">
+                    <div class="cake-name">Premium Rabdi Cake</div>
+                    <div class="cake-weight">Weight: Half Kg (500g)</div>
+                    <div class="cake-price">₹550</div>
+                </div>
+            </div>
+            <div class="dessert-card">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-info">
+                    <div class="cake-name">Royal Rasmalai Cake</div>
+                    <div class="cake-weight">Weight: Half Kg (500g)</div>
+                    <div class="cake-price">₹550</div>
+                </div>
+            </div>
+            <div class="dessert-card">
+                <div class="cake-image">[Add Cake Image]</div>
+                <div class="cake-info">
+                    <div class="cake-name">Blueberry Cheesecake Premium</div>
+                    <div class="cake-weight">Weight: Half Kg (500g)</div>
+                    <div class="cake-price">₹550</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 16: Pastries ₹600 -->
+    <div class="page page16">
+        <div class="page-header">
+            <div class="page-title">Premium Pastries</div>
+            <div class="page-subtitle">Individual Pastries - ₹600 (Half Kg)</div>
+        </div>
+        <div class="pastry-grid">
+            <div class="pastry-card">
+                <div class="cake-image">[Add Pastry Image]</div>
+                <div class="cake-info">
+                    <div class="cake-name">Red Velvet Pastry</div>
+                    <div class="cake-weight">Weight: Half Kg (500g)</div>
+                    <div class="cake-price">₹600</div>
+                </div>
+            </div>
+            <div class="pastry-card">
+                <div class="cake-image">[Add Pastry Image]</div>
+                <div class="cake-info">
+                    <div class="cake-name">Blueberry Cheesecake Pastry</div>
+                    <div class="cake-weight">Weight: Half Kg (500g)</div>
+                    <div class="cake-price">₹600</div>
+                </div>
+            </div>
+            <div class="pastry-card">
+                <div class="cake-image">[Add Pastry Image]</div>
+                <div class="cake-info">
+                    <div class="cake-name">Lotus Biscoff Pastry</div>
+                    <div class="cake-weight">Weight: Half Kg (500g)</div>
+                    <div class="cake-price">₹600</div>
+                </div>
+            </div>
+            <div class="pastry-card">
+                <div class="cake-image">[Add Pastry Image]</div>
+                <div class="cake-info">
+                    <div class="cake-name">Hazelnut Nutella Pastry</div>
+                    <div class="cake-weight">Weight: Half Kg (500g)</div>
+                    <div class="cake-price">₹600</div>
+                </div>
+            </div>
+            <div class="pastry-card">
+                <div class="cake-image">[Add Pastry Image]</div>
+                <div class="cake-info">
+                    <div class="cake-name">Classic Cheesecake Pastry</div>
+                    <div class="cake-weight">Weight: Half Kg (500g)</div>
+                    <div class="cake-price">₹600</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 17: Mixed Fruit Cake - Special Premium -->
+    <div class="page page17-new">
+        <div class="page-header">
+            <div class="page-title">Mixed Fruit Cake</div>
+            <div class="page-subtitle">Nature's Finest Fruits in Every Bite</div>
+        </div>
+        <div class="mixed-fruit-layout">
+            <div class="mixed-fruit-card-main">
+                <div class="cake-image">[Add Mixed Fruit Cake Image]</div>
+                <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                    <div class="custom-cake-title" style="color: #FF6347;">Premium Mixed Fruit Cake</div>
+                    <div class="custom-cake-description" style="color: #FF4500;">
+                        A symphony of fresh fruits! Our mixed fruit cakes feature layers of moist sponge infused with 
+                        premium fruit essence, loaded with cherries, pineapple, papaya, kiwi, strawberries, and seasonal 
+                        fruits. Topped with fresh fruit garnish and whipped cream perfection.
+                    </div>
+                </div>
+            </div>
+            <div class="mixed-fruit-card-left">
+                <div style="font-size: 22px; font-weight: bold; color: #FF6347; margin-bottom: 15px;">🍓 Fruit Varieties:</div>
+                <div class="custom-cake-features">
+                    <div class="feature-item">✓ Fresh Strawberries</div>
+                    <div class="feature-item">✓ Tropical Pineapple</div>
+                    <div class="feature-item">✓ Juicy Cherries</div>
+                    <div class="feature-item">✓ Exotic Kiwi</div>
+                    <div class="feature-item">✓ Sweet Papaya</div>
+                    <div class="feature-item">✓ Seasonal Fruits</div>
+                </div>
+            </div>
+            <div class="mixed-fruit-card-right">
+                <div style="font-size: 22px; font-weight: bold; color: #FF7F50; margin-bottom: 15px;">✨ Special Features:</div>
+                <div class="custom-cake-features">
+                    <div class="feature-item">✓ Fresh Fruit Layers</div>
+                    <div class="feature-item">✓ Light Whipped Cream</div>
+                    <div class="feature-item">✓ Fruit Essence Sponge</div>
+                    <div class="feature-item">✓ Fresh Fruit Topping</div>
+                </div>
+                <div class="custom-cake-price" style="margin-top: 18px; background: #FF6347; color: white; padding: 15px; border-radius: 15px; text-align: center;">
+                    ₹700 (Half Kg)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 18: Fusion Cake - Special Premium -->
+    <div class="page page18-new">
+        <div class="page-header">
+            <div class="page-title">Fusion Cake</div>
+            <div class="page-subtitle">East Meets West in Delicious Harmony</div>
+        </div>
+        <div class="fusion-layout">
+            <div class="fusion-card-left">
+                <div class="cake-image">[Add Fusion Cake Image]</div>
+                <div class="custom-cake-title" style="color: #3F51B5;">Exotic Fusion Cake</div>
+                <div class="custom-cake-description" style="color: #283593;">
+                    Experience the best of both worlds! Our fusion cakes blend traditional Indian flavors like cardamom, 
+                    saffron, and rose with modern western cake techniques. Think Gulab Jamun Cake, Rasmalai Fusion, 
+                    Chai Spice Cake, and more innovative combinations.
+                </div>
+            </div>
+            <div class="fusion-card-right">
+                <div style="font-size: 24px; font-weight: 800; color: #3F51B5; margin-bottom: 18px;">Popular Fusion Flavors:</div>
+                <div class="custom-cake-features">
+                    <div class="feature-item">✓ Gulab Jamun Cake</div>
+                    <div class="feature-item">✓ Rasmalai Fusion</div>
+                    <div class="feature-item">✓ Chai Spice Cake</div>
+                    <div class="feature-item">✓ Saffron Pistachio</div>
+                    <div class="feature-item">✓ Rose Cardamom</div>
+                    <div class="feature-item">✓ Mango Kulfi Cake</div>
+                    <div class="feature-item">✓ Paan Flavored</div>
+                    <div class="feature-item">✓ Mithai Fusion</div>
+                </div>
+                <div class="custom-cake-price" style="margin-top: 20px; background: linear-gradient(135deg, #3F51B5, #7E57C2); color: #FFD700; padding: 18px; border-radius: 20px; text-align: center; border: 3px solid #FFD700;">
+                    ₹950 (Half Kg)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 19: Wine Cake - Special Premium -->
+    <div class="page page19-new">
+        <div class="page-header">
+            <div class="page-title">Wine Cake</div>
+            <div class="page-subtitle">Aged to Perfection • Adults Only Delight</div>
+        </div>
+        <div class="wine-layout">
+            <div class="wine-card">
+                <div class="cake-image">[Add Wine Cake Image]</div>
+                <div class="custom-cake-title" style="color: #4A148C; font-size: 36px;">Premium Wine-Infused Cake</div>
+                <div class="custom-cake-description" style="color: #6A1B9A; font-size: 16px;">
+                    Sophisticated indulgence for discerning palates! Our wine cakes are infused with premium wines - 
+                    red wine for rich chocolate cakes, white wine for vanilla elegance, champagne for celebration cakes. 
+                    Each cake is carefully crafted to enhance the wine's subtle notes while maintaining perfect moisture 
+                    and flavor balance. <strong>21+ Only</strong>
+                </div>
+                <div class="custom-cake-features">
+                    <div class="feature-item" style="background: linear-gradient(to right, #F3E5F5, #E1BEE7); border-left: 5px solid #6A1B9A;">
+                        ✓ Red Wine Chocolate Cake
+                    </div>
+                    <div class="feature-item" style="background: linear-gradient(to right, #F3E5F5, #E1BEE7); border-left: 5px solid #6A1B9A;">
+                        ✓ White Wine Vanilla Cake
+                    </div>
+                    <div class="feature-item" style="background: linear-gradient(to right, #F3E5F5, #E1BEE7); border-left: 5px solid #6A1B9A;">
+                        ✓ Champagne Celebration Cake
+                    </div>
+                    <div class="feature-item" style="background: linear-gradient(to right, #F3E5F5, #E1BEE7); border-left: 5px solid #6A1B9A;">
+                        ✓ Port Wine Fruit Cake
+                    </div>
+                    <div class="feature-item" style="background: linear-gradient(to right, #F3E5F5, #E1BEE7); border-left: 5px solid #6A1B9A;">
+                        ✓ Premium Ingredients
+                    </div>
+                    <div class="feature-item" style="background: linear-gradient(to right, #F3E5F5, #E1BEE7); border-left: 5px solid #6A1B9A;">
+                        ✓ Sophisticated Flavor Profile
+                    </div>
+                </div>
+                <div style="background: #4A148C; color: #FFD700; padding: 22px; border-radius: 25px; margin-top: 22px; border: 4px solid #FFD700; text-align: center;">
+                    <div style="font-size: 18px; margin-bottom: 8px;">Premium Wine Collection</div>
+                    <div class="custom-cake-price" style="margin: 0; font-size: 42px;">₹1,500</div>
+                    <div style="font-size: 14px; margin-top: 8px; opacity: 0.9;">(Half Kg) • Age Verification Required</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 20: Photo Cake - Premium Customized -->
+    <div class="page page17">
+        <div class="page-header">
+            <div class="page-title">Photo Cake</div>
+            <div class="page-subtitle">Personalized Memories on Every Slice</div>
+        </div>
+        <div class="custom-cake-layout-1">
+            <div class="custom-cake-card-1">
+                <div class="cake-image">[Add Photo Cake Image]</div>
+                <div class="custom-cake-title">Premium Photo Cake</div>
+                <div class="custom-cake-description">
+                    Transform your cherished memories into a delicious masterpiece. Our premium photo cakes 
+                    feature high-quality edible prints on your choice of cake flavor. Perfect for birthdays, 
+                    anniversaries, celebrations, and corporate events.
+                </div>
+                <div class="custom-cake-features">
+                    <div class="feature-item">✓ High-Resolution Edible Print</div>
+                    <div class="feature-item">✓ Any Flavor Base Available</div>
+                    <div class="feature-item">✓ Custom Shapes & Sizes</div>
+                    <div class="feature-item">✓ Same Day Delivery Available</div>
+                    <div class="feature-item">✓ Professional Photo Quality</div>
+                    <div class="feature-item">✓ Food-Safe Edible Ink</div>
+                </div>
+                <div class="custom-cake-price">Starting from ₹800 (Half Kg)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 18: Royal Cake - Luxury Customized -->
+    <div class="page page18">
+        <div class="page-header">
+            <div class="page-title">Royal Cake</div>
+            <div class="page-subtitle">Elegance Fit for Royalty</div>
+        </div>
+        <div class="custom-cake-layout-2">
+            <div class="custom-cake-card-2-left">
+                <div class="cake-image">[Add Royal Cake Image]</div>
+            </div>
+            <div class="custom-cake-card-2-right">
+                <div class="custom-cake-title">Majestic Royal Cake</div>
+                <div class="custom-cake-description">
+                    Experience luxury with our handcrafted Royal Cakes, adorned with edible gold, intricate 
+                    sugar flowers, and premium decorations. Each cake is a work of art designed to make your 
+                    celebration truly unforgettable.
+                </div>
+                <div class="custom-cake-features">
+                    <div class="feature-item">✓ Edible Gold & Silver Leaf</div>
+                    <div class="feature-item">✓ Handcrafted Sugar Flowers</div>
+                    <div class="feature-item">✓ Premium Belgian Chocolate</div>
+                    <div class="feature-item">✓ Multi-Tier Options</div>
+                    <div class="feature-item">✓ Custom Royal Designs</div>
+                    <div class="feature-item">✓ Luxury Flavor Combinations</div>
+                </div>
+                <div class="custom-cake-price">Starting from ₹1,500 (Half Kg)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 19: Office Cake - Professional Customized -->
+    <div class="page page19">
+        <div class="page-header">
+            <div class="page-title">Office Cake</div>
+            <div class="page-subtitle">Professional Celebrations Made Perfect</div>
+        </div>
+        <div class="custom-cake-layout-3">
+            <div class="custom-cake-card-3-top">
+                <div class="cake-image">[Add Office Cake Image]</div>
+                <div class="custom-cake-title">Corporate Excellence Cake</div>
+                <div class="custom-cake-description">
+                    Celebrate workplace achievements, milestones, and team events with our professional office cakes. 
+                    Customizable with company logos, achievement themes, and corporate colors. Perfect for promotions, 
+                    project completions, and team celebrations.
+                </div>
+            </div>
+            <div class="custom-cake-card-3-bottom">
+                <div class="custom-cake-features">
+                    <div class="feature-item">✓ Company Logo Printing</div>
+                    <div class="feature-item">✓ Corporate Color Themes</div>
+                    <div class="feature-item">✓ Bulk Orders Available</div>
+                    <div class="feature-item">✓ Office Delivery Service</div>
+                    <div class="feature-item">✓ Professional Presentation</div>
+                    <div class="feature-item">✓ Customized Messages</div>
+                </div>
+                <div class="custom-cake-price">Starting from ₹900 (Half Kg)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 20: Cartoon Cake - Fun Customized -->
+    <div class="page page20">
+        <div class="page-header">
+            <div class="page-title">Cartoon Cake</div>
+            <div class="page-subtitle">Bringing Characters to Life in Every Bite</div>
+        </div>
+        <div class="custom-cake-layout-4">
+            <div class="custom-cake-card-4-main">
+                <div class="cake-image">[Add Cartoon Cake Image]</div>
+                <div class="custom-cake-card-4-info">
+                    <div class="custom-cake-title">Magical Cartoon Cake</div>
+                    <div class="custom-cake-description">
+                        Bring your child's favorite cartoon characters to life! From superheroes to princesses, 
+                        Disney characters to anime heroes - we create edible masterpieces that make birthday 
+                        parties unforgettable. Vibrant colors, detailed designs, and delicious flavors combined!
+                    </div>
+                    <div class="custom-cake-features">
+                        <div class="feature-item">✓ All Popular Characters Available</div>
+                        <div class="feature-item">✓ Vibrant Edible Colors</div>
+                        <div class="feature-item">✓ 3D Character Toppers Optional</div>
+                        <div class="feature-item">✓ Kid-Friendly Flavors</div>
+                    </div>
+                </div>
+            </div>
+            <div class="custom-cake-card-4-footer">
+                <div style="font-size: 24px; font-weight: bold;">🎨 Custom Character Designs Available</div>
+                <div class="custom-cake-price" style="margin: 0; font-size: 32px;">From ₹1,000 (Half Kg)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 21: 3D Cake - Premium Customized -->
+    <div class="page page21">
+        <div class="page-header">
+            <div class="page-title">3D Cake</div>
+            <div class="page-subtitle">Sculptured Artistry in Edible Form</div>
+        </div>
+        <div class="custom-cake-layout-5">
+            <div class="custom-cake-card-5-hero">
+                <div class="cake-image">[Add 3D Cake Image]</div>
+                <div class="custom-cake-title">Premium 3D Sculptured Cake</div>
+                <div class="custom-cake-description">
+                    Our 3D cakes are true edible sculptures! From handbags to cars, guitars to buildings - 
+                    we transform any object into a stunning, realistic cake. Each piece is meticulously 
+                    handcrafted by our expert artisans using premium ingredients and advanced sculpting techniques.
+                </div>
+            </div>
+            <div class="custom-cake-card-5-info">
+                <div style="font-size: 20px; font-weight: bold; color: #5E35B1; margin-bottom: 15px;">
+                    Premium Features:
+                </div>
+                <div class="custom-cake-features">
+                    <div class="feature-item">✓ Fully Edible 3D Designs</div>
+                    <div class="feature-item">✓ Realistic Detailing</div>
+                    <div class="feature-item">✓ Custom Object Creation</div>
+                    <div class="feature-item">✓ Professional Sculpting</div>
+                    <div class="feature-item">✓ Any Theme Possible</div>
+                    <div class="feature-item">✓ Premium Fondant Finish</div>
+                </div>
+            </div>
+            <div class="custom-cake-card-5-price">
+                <div class="price-label">Starting From</div>
+                <div class="price-value">₹1,800</div>
+                <div style="font-size: 16px; margin-top: 10px; opacity: 0.9;">(Half Kg Base)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 22: Heart Shape Cake -->
+    <div class="page page22">
+        <div class="page-header">
+            <div class="page-title">Heart Shape Cake</div>
+            <div class="page-subtitle">Love in Every Layer</div>
+        </div>
+        <div class="custom-cake-layout-6">
+            <div class="custom-cake-card-6">
+                <div class="cake-image">[Add Heart Cake Image]</div>
+                <div class="custom-cake-title">Romantic Heart Cake</div>
+                <div class="custom-cake-description">
+                    Express your love with our beautifully crafted heart-shaped cakes. Perfect for anniversaries, 
+                    Valentine's Day, proposals, or any romantic celebration. Available in red velvet, strawberry, 
+                    and classic chocolate flavors with elegant rose decorations.
+                </div>
+                <div class="custom-cake-features">
+                    <div class="feature-item">✓ Perfect Heart Shape</div>
+                    <div class="feature-item">✓ Romantic Decorations</div>
+                    <div class="feature-item">✓ Fresh Rose Petals</div>
+                    <div class="feature-item">✓ Custom Love Messages</div>
+                    <div class="feature-item">✓ Premium Red Velvet Option</div>
+                    <div class="feature-item">✓ Elegant Presentation</div>
+                </div>
+                <div class="custom-cake-price">₹950 (Half Kg)</div>
+            </div>
+            <div class="custom-cake-card-6" style="grid-column: 2; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 24px; color: #E91E63; font-weight: bold;">
+                Perfect for<br/>💕 Anniversaries<br/>💕 Proposals<br/>💕 Valentine's Day<br/>💕 Date Celebrations
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 23: Number Cake -->
+    <div class="page page23">
+        <div class="page-header">
+            <div class="page-title">Number Cake</div>
+            <div class="page-subtitle">Celebrate Every Milestone</div>
+        </div>
+        <div class="custom-cake-layout-7">
+            <div class="custom-cake-card-7">
+                <div class="cake-image">[Add Number Cake Image]</div>
+                <div class="custom-cake-title">Custom Number Cake</div>
+                <div class="custom-cake-description">
+                    Celebrate birthdays, anniversaries, and milestones with our custom number cakes! Any number from 
+                    0-99 available. Decorated with fresh cream, fruits, macarons, and your choice of toppings. Each 
+                    digit is carefully crafted to perfection.
+                </div>
+                <div class="custom-cake-features">
+                    <div class="feature-item">✓ Any Number 0-99</div>
+                    <div class="feature-item">✓ Fresh Fruit Toppings</div>
+                    <div class="feature-item">✓ Macaron Decorations</div>
+                    <div class="feature-item">✓ Custom Color Themes</div>
+                    <div class="feature-item">✓ Premium Cream Finish</div>
+                    <div class="feature-item">✓ Double Digit Options</div>
+                </div>
+                <div class="custom-cake-price">Single Digit: ₹1,200 | Double Digit: ₹2,200</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 24: Unicorn Cake -->
+    <div class="page page24">
+        <div class="page-header">
+            <div class="page-title">Unicorn Cake</div>
+            <div class="page-subtitle">Magical Dreams Come True</div>
+        </div>
+        <div class="custom-cake-layout-8">
+            <div class="custom-cake-card-8-image">
+                <div class="cake-image">[Add Unicorn Cake Image]</div>
+            </div>
+            <div class="custom-cake-card-8-content">
+                <div class="custom-cake-title">Enchanted Unicorn Cake</div>
+                <div class="custom-cake-description">
+                    Make dreams come true with our magical unicorn cakes! Featuring rainbow layers, sparkly horn, 
+                    flowing mane, and edible glitter. Perfect for princess parties and magical celebrations.
+                </div>
+                <div class="custom-cake-features">
+                    <div class="feature-item">✓ Edible Gold Horn</div>
+                    <div class="feature-item">✓ Rainbow Buttercream Mane</div>
+                    <div class="feature-item">✓ Colorful Layers Inside</div>
+                    <div class="feature-item">✓ Edible Glitter & Stars</div>
+                    <div class="feature-item">✓ Custom Color Schemes</div>
+                    <div class="feature-item">✓ Fondant Decorations</div>
+                </div>
+                <div class="custom-cake-price">Starting from ₹1,400 (Half Kg)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 25: Galaxy Cake -->
+    <div class="page page25">
+        <div class="page-header">
+            <div class="page-title">Galaxy Cake</div>
+            <div class="page-subtitle">Out of This World Designs</div>
+        </div>
+        <div class="custom-cake-layout-9">
+            <div class="custom-cake-card-9-left">
+                <div class="cake-image">[Add Galaxy Cake Image]</div>
+                <div class="custom-cake-title" style="color: #1976D2;">Cosmic Galaxy Cake</div>
+            </div>
+            <div class="custom-cake-card-9-right">
+                <div class="custom-cake-description" style="color: #1A237E;">
+                    Journey through the cosmos with our stunning galaxy cakes! Hand-painted with cosmic colors, 
+                    featuring edible stars, planets, and shimmering effects. Each cake is a unique masterpiece 
+                    of the universe.
+                </div>
+                <div class="custom-cake-features">
+                    <div class="feature-item">✓ Hand-Painted Galaxy Design</div>
+                    <div class="feature-item">✓ Edible Gold Stars</div>
+                    <div class="feature-item">✓ Cosmic Color Swirls</div>
+                    <div class="feature-item">✓ Shimmer & Pearl Effects</div>
+                    <div class="feature-item">✓ Planet Decorations</div>
+                    <div class="feature-item">✓ Mirror Glaze Finish</div>
+                </div>
+                <div class="custom-cake-price" style="color: #FFD700; background: #1A237E; padding: 20px; border-radius: 15px; text-align: center; margin-top: 20px;">Starting from ₹1,600</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 26: Wedding Cake -->
+    <div class="page page26">
+        <div class="page-header">
+            <div class="page-title">Wedding Cake</div>
+            <div class="page-subtitle">Timeless Elegance for Your Special Day</div>
+        </div>
+        <div class="custom-cake-layout-10">
+            <div class="custom-cake-card-10-top">
+                <div class="cake-image">[Add Wedding Cake Image]</div>
+                <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                    <div class="custom-cake-title" style="color: #D4AF37;">Grand Wedding Cake</div>
+                    <div class="custom-cake-description" style="color: #8B7355;">
+                        Create unforgettable memories with our exquisite wedding cakes. From classic tiered elegance 
+                        to modern designs, each cake is crafted to perfection. Features fresh flowers, intricate 
+                        piping, and premium ingredients. Available in multiple tiers and flavors.
+                    </div>
+                </div>
+            </div>
+            <div class="custom-cake-card-10-bottom">
+                <div class="custom-cake-features">
+                    <div class="feature-item">✓ Multi-Tier Options (2-5 Tiers)</div>
+                    <div class="feature-item">✓ Fresh Flower Decorations</div>
+                    <div class="feature-item">✓ Intricate Royal Icing</div>
+                    <div class="feature-item">✓ Custom Topper Design</div>
+                    <div class="feature-item">✓ Premium Fondant Work</div>
+                    <div class="feature-item">✓ Multiple Flavor Tiers</div>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <div style="font-size: 20px; color: #D4AF37; margin-bottom: 10px;">Starting Price</div>
+                    <div class="custom-cake-price" style="margin: 0;">₹3,500</div>
+                    <div style="font-size: 14px; color: #8B7355; margin-top: 5px;">(2 Tier Base - 2 Kg)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 27: Sports Cake -->
+    <div class="page page27">
+        <div class="page-header">
+            <div class="page-title">Sports Cake</div>
+            <div class="page-subtitle">Victory in Every Bite</div>
+        </div>
+        <div class="custom-cake-layout-11">
+            <div class="custom-cake-card-11-hero">
+                <div class="cake-image">[Add Sports Cake Image]</div>
+                <div class="custom-cake-title" style="color: #2E7D32; transform: skew(2deg);">Champion Sports Cake</div>
+                <div class="custom-cake-description" style="color: #1B5E20; transform: skew(2deg);">
+                    Score big with our sports-themed cakes! Cricket bats, footballs, basketballs, jerseys - we create 
+                    realistic edible replicas of your favorite sports equipment. Perfect for sports enthusiasts, 
+                    team celebrations, and victory parties.
+                </div>
+            </div>
+            <div class="custom-cake-card-11-info">
+                <div style="font-size: 22px; font-weight: bold; color: #2E7D32; margin-bottom: 15px;">Available Sports:</div>
+                <div class="custom-cake-features">
+                    <div class="feature-item">✓ Cricket Theme</div>
+                    <div class="feature-item">✓ Football Design</div>
+                    <div class="feature-item">✓ Basketball Cake</div>
+                    <div class="feature-item">✓ Tennis Racket</div>
+                    <div class="feature-item">✓ Custom Jersey Numbers</div>
+                    <div class="feature-item">✓ Team Logos Available</div>
+                </div>
+            </div>
+            <div class="custom-cake-card-11-price">
+                <div class="custom-cake-price" style="margin: 0; color: #FFD700;">₹1,300 (Half Kg)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 28: Designer Cake -->
+    <div class="page page28">
+        <div class="page-header">
+            <div class="page-title">Designer Cake</div>
+            <div class="page-subtitle">Artistic Masterpieces You Can Taste</div>
+        </div>
+        <div class="custom-cake-layout-12">
+            <div class="custom-cake-card-12-main">
+                <div class="cake-image">[Add Designer Cake Image]</div>
+            </div>
+            <div class="custom-cake-card-12-side">
+                <div class="custom-cake-title" style="color: #F57F17;">Artisan Designer Cake</div>
+                <div class="custom-cake-description" style="color: #E65100;">
+                    Collaborate with our expert cake artists to create your vision. From abstract art to fashion-inspired 
+                    designs, geometric patterns to artistic expressions - we bring your imagination to life.
+                </div>
+                <div class="custom-cake-features">
+                    <div class="feature-item">✓ Custom Art Designs</div>
+                    <div class="feature-item">✓ Fashion-Inspired Themes</div>
+                    <div class="feature-item">✓ Geometric Patterns</div>
+                    <div class="feature-item">✓ Hand-Painted Details</div>
+                    <div class="feature-item">✓ Modern Art Styles</div>
+                    <div class="feature-item">✓ Abstract Concepts</div>
+                </div>
+            </div>
+            <div class="custom-cake-card-12-bottom">
+                <div style="flex: 1;">
+                    <div style="font-size: 20px; color: #F57F17; font-weight: 700; margin-bottom: 12px;">📞 Design Consultation Process:</div>
+                    <div style="font-size: 14px; color: #E65100; line-height: 1.7;">
+                        <strong>Step 1:</strong> Share your vision, theme, and color preferences<br/>
+                        <strong>Step 2:</strong> Our artist creates custom design sketches<br/>
+                        <strong>Step 3:</strong> Review and refine until perfect<br/>
+                        <strong>Step 4:</strong> Final approval and baking begins<br/><br/>
+                        <em>Minimum 5 days advance booking required for custom designs</em>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <div class="custom-cake-price" style="margin: 0;">From ₹2,000</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 29: Floral Cake -->
+    <div class="page page29">
+        <div class="page-header">
+            <div class="page-title">Floral Cake</div>
+            <div class="page-subtitle">Garden Fresh Elegance</div>
+        </div>
+        <div class="custom-cake-layout-13">
+            <div class="custom-cake-card-13">
+                <div class="cake-image">[Add Floral Cake Image]</div>
+                <div class="custom-cake-title" style="color: #C2185B;">Botanical Garden Cake</div>
+                <div class="custom-cake-description" style="color: #880E4F;">
+                    Blooming with beauty! Our floral cakes feature handcrafted sugar flowers, fresh edible flowers, 
+                    and delicate buttercream florals. Each petal is meticulously crafted for stunning realism. 
+                    Perfect for garden parties, bridal showers, and elegant celebrations.
+                </div>
+                <div class="custom-cake-features">
+                    <div class="feature-item">✓ Handcrafted Sugar Flowers</div>
+                    <div class="feature-item">✓ Fresh Edible Flowers</div>
+                    <div class="feature-item">✓ Buttercream Florals</div>
+                    <div class="feature-item">✓ Rose, Peony, Orchid Options</div>
+                    <div class="feature-item">✓ Seasonal Flower Designs</div>
+                    <div class="feature-item">✓ Custom Color Palettes</div>
+                </div>
+                <div class="custom-cake-price">Starting from ₹1,350 (Half Kg)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 30: Superhero Cake -->
+    <div class="page page30">
+        <div class="page-header">
+            <div class="page-title">Superhero Cake</div>
+            <div class="page-subtitle">Heroes Rise to Every Occasion!</div>
+        </div>
+        <div class="custom-cake-layout-14">
+            <div class="custom-cake-card-14-main">
+                <div class="cake-image">[Add Superhero Cake Image]</div>
+                <div class="custom-cake-title" style="color: #B71C1C;">Epic Superhero Cake</div>
+                <div class="custom-cake-description" style="color: #C62828;">
+                    POW! BAM! BOOM! Unleash superhero power at your party! From Marvel to DC, Avengers to Justice League - 
+                    we create action-packed cakes with bold designs, comic book elements, and heroic decorations.
+                </div>
+            </div>
+            <div class="custom-cake-card-14-side">
+                <div style="font-size: 26px; font-weight: 900; color: #000; margin-bottom: 20px; text-align: center;">HEROES AVAILABLE</div>
+                <div class="custom-cake-features">
+                    <div class="feature-item" style="background: #000; color: #FFEB3B; border: 3px solid #FFEB3B;">✓ Spider-Man</div>
+                    <div class="feature-item" style="background: #000; color: #FFEB3B; border: 3px solid #FFEB3B;">✓ Batman</div>
+                    <div class="feature-item" style="background: #000; color: #FFEB3B; border: 3px solid #FFEB3B;">✓ Iron Man</div>
+                    <div class="feature-item" style="background: #000; color: #FFEB3B; border: 3px solid #FFEB3B;">✓ Captain America</div>
+                    <div class="feature-item" style="background: #000; color: #FFEB3B; border: 3px solid #FFEB3B;">✓ Wonder Woman</div>
+                    <div class="feature-item" style="background: #000; color: #FFEB3B; border: 3px solid #FFEB3B;">✓ Custom Heroes</div>
+                </div>
+                <div class="custom-cake-price" style="margin-top: 20px; background: #000; color: #FFEB3B; padding: 15px; border-radius: 10px; border: 4px solid #FFEB3B;">₹1,250</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 31: Minimalist Cake -->
+    <div class="page page31">
+        <div class="page-header">
+            <div class="page-title">Minimalist Cake</div>
+            <div class="page-subtitle">Less is More | Simple Sophistication</div>
+        </div>
+        <div class="custom-cake-layout-15">
+            <div class="custom-cake-card-15">
+                <div class="cake-image">[Add Minimalist Cake Image]</div>
+                <div class="custom-cake-title" style="color: #212121; font-weight: 300; font-size: 36px; letter-spacing: 6px;">MINIMALIST ELEGANCE</div>
+                <div class="custom-cake-description" style="color: #616161; font-size: 15px; line-height: 1.9;">
+                    Embrace simplicity with our minimalist cake designs. Clean lines, subtle colors, and understated 
+                    elegance. Perfect for modern celebrations, corporate events, and those who appreciate refined aesthetics. 
+                    Sometimes the most powerful statement is the quietest one.
+                </div>
+                <div class="custom-cake-features" style="display: flex; flex-direction: column; gap: 12px; margin-top: 25px;">
+                    <div class="feature-item" style="background: #FAFAFA; border-left: 2px solid #212121; font-size: 13px;">— Clean Geometric Designs</div>
+                    <div class="feature-item" style="background: #FAFAFA; border-left: 2px solid #212121; font-size: 13px;">— Monochromatic Color Schemes</div>
+                    <div class="feature-item" style="background: #FAFAFA; border-left: 2px solid #212121; font-size: 13px;">— Smooth Buttercream Finish</div>
+                    <div class="feature-item" style="background: #FAFAFA; border-left: 2px solid #212121; font-size: 13px;">— Subtle Gold/Silver Accents</div>
+                    <div class="feature-item" style="background: #FAFAFA; border-left: 2px solid #212121; font-size: 13px;">— Modern Aesthetic</div>
+                    <div class="feature-item" style="background: #FAFAFA; border-left: 2px solid #212121; font-size: 13px;">— Sophisticated Simplicity</div>
+                </div>
+                <div class="custom-cake-price" style="color: #212121; margin-top: 30px; font-weight: 300; letter-spacing: 3px;">FROM ₹1,100</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 32: Drip Cake -->
+    <div class="page page32">
+        <div class="page-header">
+            <div class="page-title">Drip Cake</div>
+            <div class="page-subtitle">Decadent Drizzles of Delight</div>
+        </div>
+        <div class="custom-cake-layout-16">
+            <div class="custom-cake-card-16-left">
+                <div class="custom-cake-title" style="color: #F57F17;">Luxury Drip Cake</div>
+                <div class="custom-cake-description" style="color: #E65100;">
+                    Watch chocolate, caramel, or colored ganache cascade down the sides of our perfectly frosted cakes. 
+                    Each drip is carefully crafted for Instagram-worthy perfection. Topped with macarons, chocolates, 
+                    cookies, and fresh flowers.
+                </div>
+                <div class="custom-cake-features">
+                    <div class="feature-item">✓ Chocolate/Caramel/Colored Drips</div>
+                    <div class="feature-item">✓ Macaron Toppings</div>
+                    <div class="feature-item">✓ Premium Chocolate Decor</div>
+                    <div class="feature-item">✓ Fresh Flower Options</div>
+                    <div class="feature-item">✓ Cookie & Candy Toppings</div>
+                    <div class="feature-item">✓ Custom Color Schemes</div>
+                </div>
+                <div class="custom-cake-price" style="margin-top: 20px;">Starting from ₹1,450</div>
+            </div>
+            <div class="custom-cake-card-16-right">
+                <div class="cake-image">[Add Drip Cake Image]</div>
+                <div style="background: #FFF9C4; padding: 15px; border-radius: 15px; border-left: 5px solid #F57F17;">
+                    <div style="font-size: 18px; font-weight: bold; color: #F57F17; margin-bottom: 8px;">Popular Drip Flavors:</div>
+                    <div style="font-size: 14px; color: #E65100; line-height: 1.7;">
+                        • Dark Chocolate Ganache<br/>
+                        • Salted Caramel<br/>
+                        • White Chocolate<br/>
+                        • Nutella Drip<br/>
+                        • Gold/Silver Metallic
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 33: Geode Cake -->
+    <div class="page page33">
+        <div class="page-header">
+            <div class="page-title">Geode Cake</div>
+            <div class="page-subtitle">Crystallized Edible Gemstones</div>
+        </div>
+        <div class="custom-cake-layout-17">
+            <div class="custom-cake-card-17-main">
+                <div class="cake-image">[Add Geode Cake Image]</div>
+                <div class="custom-cake-title" style="color: #00695C;">Stunning Geode Crystal Cake</div>
+                <div class="custom-cake-description" style="color: #004D40;">
+                    A geological marvel in edible form! Our geode cakes feature hand-crafted rock candy crystals 
+                    resembling precious gemstones. Each "crystal cavity" is uniquely designed with edible gems in 
+                    amethyst, emerald, sapphire, or custom colors. A true showstopper!
+                </div>
+                <div class="custom-cake-features">
+                    <div class="feature-item">✓ Hand-Crafted Rock Candy Crystals</div>
+                    <div class="feature-item">✓ Edible Gold/Silver Leaf Accents</div>
+                    <div class="feature-item">✓ Custom Crystal Colors</div>
+                    <div class="feature-item">✓ Amethyst, Emerald, Sapphire Themes</div>
+                    <div class="feature-item">✓ Marbled Fondant Exterior</div>
+                    <div class="feature-item">✓ Unique One-of-a-Kind Design</div>
+                </div>
+                <div class="custom-cake-price">Starting from ₹2,200 (Half Kg)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 34: Ombre Cake -->
+    <div class="page page34">
+        <div class="page-header">
+            <div class="page-title">Ombre Cake</div>
+            <div class="page-subtitle">Gradient Perfection Layer by Layer</div>
+        </div>
+        <div class="custom-cake-layout-18">
+            <div class="custom-cake-card-18-top">
+                <div class="cake-image">[Add Ombre Cake Image]</div>
+                <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                    <div class="custom-cake-title" style="color: #0277BD;">Beautiful Ombre Cake</div>
+                    <div class="custom-cake-description" style="color: #01579B;">
+                        Experience the mesmerizing beauty of seamlessly blended colors! Our ombre cakes feature smooth 
+                        gradient transitions from light to dark or through rainbow hues. Each layer inside mirrors the 
+                        exterior gradient for a stunning surprise when cut.
+                    </div>
+                </div>
+            </div>
+            <div class="custom-cake-card-18-bottom">
+                <div class="custom-cake-features">
+                    <div class="feature-item">✓ Smooth Color Gradients</div>
+                    <div class="feature-item">✓ Rainbow or Single Color Themes</div>
+                    <div class="feature-item">✓ Matching Interior Layers</div>
+                    <div class="feature-item">✓ Buttercream or Fondant Finish</div>
+                    <div class="feature-item">✓ Custom Color Combinations</div>
+                    <div class="feature-item">✓ Petal or Ruffle Options</div>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <div style="font-size: 18px; color: #0277BD; font-weight: 600; margin-bottom: 8px;">Starting Price</div>
+                    <div class="custom-cake-price" style="margin: 0;">₹1,350</div>
+                    <div style="font-size: 13px; color: #01579B; margin-top: 5px;">(Half Kg)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 35: Rustic Cake -->
+    <div class="page page35">
+        <div class="page-header">
+            <div class="page-title">Rustic Cake</div>
+            <div class="page-subtitle">Natural Beauty • Organic Elegance</div>
+        </div>
+        <div class="custom-cake-layout-19">
+            <div class="custom-cake-card-19-hero">
+                <div class="cake-image">[Add Rustic Cake Image]</div>
+                <div class="custom-cake-title" style="color: #4E342E;">Artisan Rustic Cake</div>
+                <div class="custom-cake-description" style="color: #5D4037;">
+                    Embrace natural beauty with our rustic cakes featuring semi-naked frosting, organic textures, 
+                    fresh fruit, and wildflower decorations. Perfect for outdoor weddings, garden parties, and 
+                    those who love understated elegance.
+                </div>
+            </div>
+            <div class="custom-cake-card-19-info">
+                <div style="font-size: 20px; font-weight: bold; color: #4E342E; margin-bottom: 12px;">Rustic Elements:</div>
+                <div class="custom-cake-features">
+                    <div class="feature-item">✓ Semi-Naked Frosting</div>
+                    <div class="feature-item">✓ Fresh Berries & Fruits</div>
+                    <div class="feature-item">✓ Wildflower Decorations</div>
+                    <div class="feature-item">✓ Natural Wood Elements</div>
+                    <div class="feature-item">✓ Organic Textures</div>
+                    <div class="feature-item">✓ Buttercream Finish</div>
+                </div>
+            </div>
+            <div class="custom-cake-card-19-price">
+                <div style="font-size: 16px; opacity: 0.9; margin-bottom: 10px;">From</div>
+                <div style="font-size: 44px; font-weight: 900; color: #FFF;">₹1,250</div>
+                <div style="font-size: 14px; margin-top: 8px; opacity: 0.85;">(Half Kg Base)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 36: Metallic Cake -->
+    <div class="page page36">
+        <div class="page-header">
+            <div class="page-title">Metallic Cake</div>
+            <div class="page-subtitle">Gilded Glamour • Precious Metal Finish</div>
+        </div>
+        <div class="custom-cake-layout-20">
+            <div class="custom-cake-card-20">
+                <div class="cake-image">[Add Metallic Cake Image]</div>
+                <div class="custom-cake-title" style="color: #212121; font-size: 34px;">Luxe Metallic Cake</div>
+                <div class="custom-cake-description" style="color: #424242;">
+                    Shine like precious metal with our stunning metallic cakes! Featuring edible gold, silver, rose gold, 
+                    or copper finishes created with specialized food-safe lustrous dusts. Perfect for upscale events, 
+                    milestone birthdays, and luxury celebrations.
+                </div>
+                <div class="custom-cake-features">
+                    <div class="feature-item" style="border-left: 4px solid #FFD700;">✓ Edible Gold/Silver/Rose Gold Finish</div>
+                    <div class="feature-item" style="border-left: 4px solid #FFD700;">✓ Food-Safe Metallic Dusts</div>
+                    <div class="feature-item" style="border-left: 4px solid #FFD700;">✓ Mirror-Like Shine</div>
+                    <div class="feature-item" style="border-left: 4px solid #FFD700;">✓ Copper & Bronze Options</div>
+                    <div class="feature-item" style="border-left: 4px solid #FFD700;">✓ Geometric Modern Designs</div>
+                    <div class="feature-item" style="border-left: 4px solid #FFD700;">✓ Premium Luxury Finish</div>
+                </div>
+                <div class="custom-cake-price" style="background: #212121; color: #FFD700; padding: 20px; border-radius: 20px; margin-top: 20px; border: 3px solid #FFD700;">
+                    Starting from ₹1,800 (Half Kg)
+                </div>
+            </div>
+        </div>
+    </div>
+                <p style="margin-top: 8px; font-size
+    <!-- CONTACT US PAGE -->
+    <div class="page page-contact">
+        <div class="page-header">
+            <div class="page-title">Contact Us</div>
+            <div class="page-subtitle">We're Here to Make Your Celebrations Sweet!</div>
+        </div>
+        <div class="contact-layout">
+            <div class="contact-header-banner">
+                <h2>🎂 केके फॉरेवर - LIVE CAKE SHOP 🎂</h2>
+                <p>Your Trusted Partner for Memorable Celebrations</p>
+            </div>
+
+            <div class="contact-info-card">
+                <h3 style="font-size: 20px; color: #C41E3A; margin-bottom: 16px; font-weight: 900;">📞 Get in Touch</h3>
+                
+                <div class="contact-info-item">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-details">
+                        <h4>Phone / WhatsApp</h4>
+                        <p>Ritesh Pandey: 8080278974</p>
+                    </div>
+                </div>
+
+                <div class="contact-info-item">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-details">
+                        <h4>Email</h4>
+                        <p>info@cakeforever.co.in</p>
+                    </div>
+                </div>
+
+                <div class="contact-info-item">
+                    <div class="contact-icon">🌐</div>
+                    <div class="contact-details">
+                        <h4>Website</h4>
+                        <p>www.cakeforever.co.in</p>
+                    </div>
+                </div>
+
+                <div class="contact-info-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-details">
+                        <h4>Visit Our Shop</h4>
+                        <p>Mharal Gaon Gaondevi Apartment</p>
+                        <p>Near By Gaon Devi Mandir</p>
+                        <p>Shahad - 421103</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-social-card">
+                <h3 style="font-size: 20px; margin-bottom: 12px; font-weight: 900; text-align: center;">🌟 Follow Us</h3>
+                <div class="social-icons">
+                    <div class="social-icon">📘<br/>Facebook</div>
+                    <div class="social-icon">📷<br/>Instagram</div>
+                    <div class="social-icon">🐦<br/>Twitter</div>
+                    <div class="social-icon">▶️<br/>YouTube</div>
+                    <div class="social-icon">💼<br/>LinkedIn</div>
+                    <div class="social-icon">📌<br/>Pinterest</div>
+                </div>
+            </div>
+
+            <div class="contact-hours-card">
+                <h3 style="font-size: 20px; color: #C41E3A; margin-bottom: 16px; font-weight: 900;">🕒 Business Hours</h3>
+                
+                <div class="hours-item">
+                    <span style="font-weight: 700;">Mon - Sat</span>
+                    <span>10 AM - 1 AM</span>
+                </div>
+                
+                <div class="hours-item">
+                    <span style="font-weight: 700;">Sunday</span>
+                    <span>10 AM - 1 AM</span>
+                </div>
+                
+                <div class="hours-item" style="background: #FFFACD; color: #C41E3A; font-weight: 700;">
+                    <span>Special Orders:</span>
+                    <span>24/7</span>
+                </div>
+
+                <div style="margin-top: 16px; padding: 14px; background: linear-gradient(135deg, #E91E63, #FF69B4); color: white; border-radius: 12px; text-align: center;">
+                    <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">⚡ Free Home Delivery</div>
+                    <div style="font-size: 12px;">Min 2 hours for standard cakes</div>
+                    <div style="font-size: 12px;">Custom: Advance booking</div>
+                </div>
+            </div>
+
+            <div class="contact-footer">
+                <h3>🎉 Thank You for Choosing Cake Forever! 🎉</h3>
+                <p>Making Your Special Moments Even More Special</p>
+                <p style="margin-top: 8px; font-size: 13p
